@@ -1,0 +1,85 @@
+<header id="gh-navigation" class="gh-navigation is-{{#match navigationLayout "Logo on the left"}}left-logo{{else match navigationLayout "Stacked"}}stacked{{else}}middle-logo{{/match}}{{#match @custom.header_and_footer_color "Accent color"}} has-accent-color{{/match}} gh-outer">
+    <div class="gh-navigation-inner gh-inner">
+
+        <div class="gh-navigation-brand">
+            <a class="gh-navigation-logo is-title" href="{{@site.url}}">
+                {{#is "home"}}
+                    {{#if @site.logo}}
+                        <img src="{{@site.logo}}" alt="{{@site.title}}">
+                    {{else}}
+                        {{@site.title}}
+                    {{/if}}
+                    <span class="buba-navigation-text">
+                        <strong>{{@site.title}}</strong>
+                        <small>Einfach verstehen. Sicher sprechen.</small>
+                    </span>
+                {{else}}
+                    {{#if @site.logo}}
+                        <img src="{{@site.logo}}" alt="{{@site.title}}">
+                    {{else}}
+                        {{@site.title}}
+                    {{/if}}
+                {{/is}}
+            </a>
+            {{> "search-toggle"}}
+            <button class="gh-burger gh-icon-button" aria-label="{{t "Menu"}}" aria-controls="gh-navigation-menu" aria-expanded="false">
+                {{> "icons/burger"}}
+                {{> "icons/close"}}
+            </button>
+        </div>
+
+        <nav id="gh-navigation-menu" class="gh-navigation-menu">
+            {{#is "home"}}
+                <ul class="buba-nav" role="list">
+                    <li class="nav-current"><a href="{{@site.url}}" aria-current="page">Startseite</a></li>
+                    <li class="buba-nav-dropdown">
+                        <a class="buba-nav-trigger" href="/tag/grammatik/" aria-haspopup="true" aria-controls="buba-topics-menu">
+                            Themen <span class="buba-nav-chevron" aria-hidden="true"></span>
+                        </a>
+                        <ul id="buba-topics-menu" class="buba-nav-panel" role="list" aria-label="Themen">
+                            <li><a href="/tag/grammatik/"><strong>Grammatik</strong><small>Regeln verstehen</small></a></li>
+                            <li><a href="/tag/wortschatz/"><strong>Wortschatz</strong><small>Neue Wörter lernen</small></a></li>
+                            <li><a href="/tag/alltag/"><strong>Alltag</strong><small>Deutsch im Leben</small></a></li>
+                            <li><a href="/tag/lernen/"><strong>Lernen lernen</strong><small>Tipps & Motivation</small></a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#mitgliedschaft">Mitgliedschaft</a></li>
+                    <li><a href="#neueste-beitraege">Blog</a></li>
+                    <li><a href="/ueber-buba/">Über Buba</a></li>
+                </ul>
+            {{else}}
+                {{navigation}}
+                {{#unless @site.members_enabled}}
+                    {{#match navigationLayout "Stacked"}}
+                        {{> "search-toggle"}}
+                    {{/match}}
+                {{/unless}}
+            {{/is}}
+        </nav>
+
+        <div class="gh-navigation-actions">
+            {{#unless @site.members_enabled}}
+                {{^match navigationLayout "Stacked"}}
+                    {{> "search-toggle"}}
+                {{/match}}
+            {{else}}
+                {{> "search-toggle"}}
+                <div class="gh-navigation-members">
+                    {{#unless @member}}
+                        {{#unless @site.members_invite_only}}
+                            <a href="#/portal/signin" data-portal="signin">Anmelden</a>
+                            {{#unless hideSubscribeButton}}
+                                <a class="gh-button" href="#/portal/signup" data-portal="signup">Mitglied werden</a>
+                            {{/unless}}
+                        {{else}}
+                            <a class="gh-button" href="#/portal/signin" data-portal="signin">Anmelden</a>
+                        {{/unless}}
+                    {{else}}
+                        <a class="gh-button" href="#/portal/account" data-portal="account">Konto</a>
+                    {{/unless}}
+                </div>
+            {{/unless}}
+        </div>
+
+    </div>
+</header>

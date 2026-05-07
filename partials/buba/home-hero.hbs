@@ -1,0 +1,34 @@
+<section class="buba-hero" aria-labelledby="buba-home-title">
+    <div class="buba-hero-inner">
+        <div class="buba-hero-copy">
+            <h1 id="buba-home-title">Deutsch lernen.<br><span>Einfach</span> erklärt.<br><small>Mit Buba an deiner Seite.</small></h1>
+            <p>Praktische Erklärungen, Übungen und Tipps für Alltag, Arbeit und Prüfungen. Besonders hilfreich für ukrainischsprachige Lernende.</p>
+
+            <div class="buba-actions">
+                <a class="buba-button buba-button-primary" href="#neueste-beitraege">Kostenlos starten <span aria-hidden="true">→</span></a>
+                {{#if @site.members_enabled}}
+                    <a class="buba-button buba-button-secondary" href="#/portal/signup" data-portal="signup">Mitglied werden</a>
+                {{else}}
+                    <a class="buba-button buba-button-secondary" href="#themen">Themen ansehen</a>
+                {{/if}}
+            </div>
+
+            <ul class="buba-benefits" aria-label="Lernvorteile">
+                <li><span class="buba-benefit-icon"><img src="{{asset "icons/buba-icon-level-a1-b1.svg"}}" alt="" loading="eager"></span><strong>A1 bis B1</strong><small>Alle Niveaus</small></li>
+                <li><span class="buba-benefit-icon"><img src="{{asset "icons/buba-icon-briefcase.svg"}}" alt="" loading="eager"></span><strong>Alltag & Beruf</strong><small>Praxisnah lernen</small></li>
+                <li><span class="buba-benefit-icon"><img class="buba-benefit-flag" src="{{asset "icons/buba-icon-ukraine.png"}}" alt="" loading="eager"></span><strong>Mit ukrainischen Hilfen</strong><small>Вивчай легко!</small></li>
+                <li><span class="buba-benefit-icon"><img src="{{asset "icons/buba-icon-star.svg"}}" alt="" loading="eager"></span><strong>Einfach & verständlich</strong><small>So einfach wie möglich</small></li>
+            </ul>
+        </div>
+
+        <figure class="buba-hero-media">
+            <picture>
+                <source media="(min-width: 1600px)" srcset="{{asset "images/buba-hero3-wide.png"}}">
+                <source media="(min-width: 1360px)" srcset="{{asset "images/buba-hero3-desktop.png"}}">
+                <source media="(min-width: 1200px)" srcset="{{asset "images/buba-hero3-compact.png"}}">
+                <source media="(min-width: 768px)" srcset="{{asset "images/buba-hero3-tablet.png"}}">
+                <img src="{{asset "images/buba-hero3-mobile.png"}}" alt="Buba sitzt mit Stift, Notizbuch, Lernbüchern und deutscher Flagge am Schreibtisch" fetchpriority="high" loading="eager">
+            </picture>
+        </figure>
+    </div>
+</section>

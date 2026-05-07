@@ -1,0 +1,42 @@
+<section id="neueste-beitraege" class="buba-section buba-latest" aria-labelledby="buba-latest-title">
+    <div class="buba-container">
+        <div class="buba-section-head">
+            <h2 id="buba-latest-title">Neueste Beiträge</h2>
+            <a href="/page/2/">Alle Beiträge ansehen <span aria-hidden="true">→</span></a>
+        </div>
+
+        <div class="buba-grid-6 buba-latest-grid">
+            {{#foreach posts from="2" limit="6"}}
+                <article class="buba-post-card">
+                    <a class="buba-post-image" href="{{url}}" aria-label="{{title}}">
+                        {{#if feature_image}}
+                            <img
+                                srcset="{{img_url feature_image size="s" format="webp"}} 320w,
+                                        {{img_url feature_image size="m" format="webp"}} 600w,
+                                        {{img_url feature_image size="l" format="webp"}} 960w"
+                                sizes="(max-width: 520px) 50vw, (max-width: 1199px) 33vw, 180px"
+                                src="{{img_url feature_image size="m"}}"
+                                alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
+                                loading="lazy"
+                            >
+                        {{else}}
+                            <span class="buba-post-placeholder" aria-hidden="true"><img src="{{asset "icons/buba-icon-question.svg"}}" alt="" loading="eager"></span>
+                        {{/if}}
+                    </a>
+                    <div class="buba-post-body">
+                        {{#primary_tag}}<a class="buba-post-tag" href="{{url}}">{{name}}</a>{{/primary_tag}}
+                        <h3><a href="{{url}}">{{title}}</a></h3>
+                        <footer>
+                            <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="DD. MMM YYYY"}}</time>
+                            {{#if reading_time}}<span>{{reading_time minute="1 Min." minutes="% Min."}}</span>{{/if}}
+                        </footer>
+                    </div>
+                </article>
+            {{/foreach}}
+        </div>
+
+        {{#unless @member.paid}}
+            <aside class="buba-ad-slot buba-ad-slot-feed" aria-label="Anzeige" hidden data-ad-slot="home-feed"></aside>
+        {{/unless}}
+    </div>
+</section>

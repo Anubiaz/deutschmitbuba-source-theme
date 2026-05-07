@@ -1,0 +1,66 @@
+<section class="buba-section buba-feature" aria-label="Neuester Beitrag und Mitgliedschaft">
+    <div class="buba-container buba-grid-3 buba-feature-grid">
+        {{#foreach posts limit="1"}}
+            <article class="buba-feature-card buba-feature-primary">
+                <a class="buba-feature-image" href="{{url}}" aria-label="{{title}}">
+                    {{#if feature_image}}
+                        <img
+                            srcset="{{img_url feature_image size="m" format="webp"}} 600w,
+                                    {{img_url feature_image size="l" format="webp"}} 960w,
+                                    {{img_url feature_image size="xxl" format="webp"}} 2000w"
+                            sizes="(max-width: 767px) calc(100vw - 36px), (max-width: 1200px) 50vw, 390px"
+                            src="{{img_url feature_image size="l"}}"
+                            alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
+                            loading="lazy"
+                        >
+                    {{else}}
+                        <img src="{{asset "images/buba-feature-alltag.png"}}" alt="" loading="lazy">
+                    {{/if}}
+                </a>
+
+                <div class="buba-feature-body">
+                    {{#primary_tag}}<p class="buba-eyebrow">{{name}}</p>{{/primary_tag}}
+                    <h2><a href="{{url}}">{{title}}</a></h2>
+                    {{#if excerpt}}<p>{{excerpt}}</p>{{/if}}
+                    <div class="buba-meta">
+                        <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="DD. MMM YYYY"}}</time>
+                        {{#if reading_time}}<span>{{reading_time minute="1 Min. Lesezeit" minutes="% Min. Lesezeit"}}</span>{{/if}}
+                    </div>
+                    <a class="buba-link" href="{{url}}">Beitrag lesen <span aria-hidden="true">→</span></a>
+                </div>
+            </article>
+        {{else}}
+            <article class="buba-feature-card buba-feature-primary">
+                <span class="buba-feature-image">
+                    <img src="{{asset "images/buba-feature-alltag.png"}}" alt="Straße in Deutschland mit Tram" loading="lazy">
+                </span>
+
+                <div class="buba-feature-body">
+                    <p class="buba-eyebrow">Start</p>
+                    <h2>Deutsch lernen mit Buba</h2>
+                    <p>Hier erscheint automatisch dein neuester Beitrag, sobald ein Artikel in Ghost veröffentlicht ist.</p>
+                    <a class="buba-link" href="#neueste-beitraege">Beiträge ansehen <span aria-hidden="true">→</span></a>
+                </div>
+            </article>
+        {{/foreach}}
+
+        <aside class="buba-membership" id="mitgliedschaft">
+            <span class="buba-crown" aria-hidden="true"><img src="{{asset "icons/buba-icon-crown.svg"}}" alt="" loading="eager"></span>
+            <h2>Werde Mitglied und lerne ohne Ablenkung</h2>
+            <ul>
+                <li>Exklusive Übungen & Lösungen</li>
+                <li>PDFs, Wortlisten & Merkblätter</li>
+                <li>Prüfungsmaterial & Musterteste</li>
+                <li>Mitgliederinhalte & Downloads</li>
+                <li>Ohne Werbung lernen</li>
+            </ul>
+            {{#if @site.members_enabled}}
+                <a class="buba-button buba-button-primary" href="#/portal/signup" data-portal="signup">Jetzt Mitglied werden <span aria-hidden="true">→</span></a>
+            {{else}}
+                <a class="buba-button buba-button-primary" href="#neueste-beitraege">Jetzt lernen <span aria-hidden="true">→</span></a>
+            {{/if}}
+            <p>Schon ab 4,99 € / Monat<br>Monatlich kündbar.</p>
+            <img src="{{asset "images/buba-newsletter1-trim.webp"}}" alt="" loading="lazy">
+        </aside>
+    </div>
+</section>

@@ -1,0 +1,33 @@
+<section class="buba-section buba-final" aria-label="Newsletter, Community und Empfehlung">
+    <div class="buba-container buba-grid-3 buba-final-grid">
+        <article id="newsletter" class="buba-newsletter">
+            <div>
+                <h2>Nichts mehr verpassen!</h2>
+                <p>Erhalte neue Beiträge, kostenlose Lernhilfen und exklusive Tipps direkt in dein Postfach.</p>
+                {{#if @site.members_enabled}}
+                    {{> "email-subscription" email_field_id="buba-home-email"}}
+                {{/if}}
+            </div>
+            <img src="{{asset "images/buba-newsletter2-trim.webp"}}" alt="" loading="lazy">
+        </article>
+
+        <article class="buba-community">
+            <h2>Werde Teil der Community</h2>
+            <p>Tausche dich aus, stelle Fragen und motiviere dich mit anderen Lernenden.</p>
+            <div aria-label="Social Media">
+                <span aria-label="Instagram"><img src="{{asset "icons/buba-social-instagram.svg"}}" alt="" loading="eager"></span>
+                <span aria-label="YouTube"><img src="{{asset "icons/buba-social-youtube.svg"}}" alt="" loading="eager"></span>
+                <span aria-label="TikTok"><img src="{{asset "icons/buba-social-tiktok.svg"}}" alt="" loading="eager"></span>
+                <span aria-label="Telegram"><img src="{{asset "icons/buba-social-telegram.svg"}}" alt="" loading="eager"></span>
+            </div>
+            <a class="buba-link" href="#mitgliedschaft">Mitgliedschaft ansehen <span aria-hidden="true">→</span></a>
+        </article>
+
+        <article class="buba-quote">
+            <span aria-hidden="true"><img src="{{asset "icons/buba-icon-quote.svg"}}" alt="" loading="eager"></span>
+            <p>Dank Buba verstehe ich Grammatik endlich! Die Erklärungen sind so einfach und klar.</p>
+            <strong>★★★★★</strong>
+            <small>Olena, B1</small>
+        </article>
+    </div>
+</section>
