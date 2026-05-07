@@ -9,6 +9,7 @@
     --buba-line: #dfe5ec;
     --buba-line-soft: #edf1f5;
     --buba-yellow: #ffbf00;
+    --buba-yellow-text: #8a6500;
     --buba-blue: #006cff;
     --buba-shadow: 0 12px 26px rgb(11 31 51 / 0.06);
     --buba-shadow-hover: 0 18px 34px rgb(11 31 51 / 0.1);
@@ -600,7 +601,7 @@
 }
 
 .buba-hero h1 span {
-    color: var(--buba-yellow);
+    color: var(--buba-yellow-text);
 }
 
 .buba-hero h1 small {
@@ -1333,6 +1334,9 @@
 }
 
 .buba-post-tag {
+    display: inline-flex;
+    align-items: center;
+    min-height: 24px;
     margin-bottom: 7px;
     color: var(--buba-blue);
     font-size: 0.94rem;
