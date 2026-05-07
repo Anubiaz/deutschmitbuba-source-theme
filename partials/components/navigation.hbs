@@ -4,21 +4,13 @@
         <div class="gh-navigation-brand">
             <a class="gh-navigation-logo is-title" href="{{@site.url}}">
                 {{#is "home"}}
-                    {{#if @site.logo}}
-                        <img src="{{@site.logo}}" alt="{{@site.title}}">
-                    {{else}}
-                        {{@site.title}}
-                    {{/if}}
+                    <img src="{{asset "logo/buba_logo-96.webp"}}" alt="{{@site.title}}" width="96" height="96">
                     <span class="buba-navigation-text">
                         <strong>{{@site.title}}</strong>
                         <small>Einfach verstehen. Sicher sprechen.</small>
                     </span>
                 {{else}}
-                    {{#if @site.logo}}
-                        <img src="{{@site.logo}}" alt="{{@site.title}}">
-                    {{else}}
-                        {{@site.title}}
-                    {{/if}}
+                    <img src="{{asset "logo/buba_logo-96.webp"}}" alt="{{@site.title}}" width="96" height="96">
                 {{/is}}
             </a>
             {{> "search-toggle"}}
