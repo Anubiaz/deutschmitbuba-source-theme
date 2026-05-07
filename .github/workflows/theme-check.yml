@@ -1,5 +1,8 @@
 name: Theme Check
 
+permissions:
+  contents: read
+
 on:
   push:
     branches: [main]
@@ -27,4 +30,3 @@ jobs:
 
       - name: Run Ghost theme checks
         run: yarn test:ci
-
