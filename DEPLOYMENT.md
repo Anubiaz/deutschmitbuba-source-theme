@@ -27,3 +27,10 @@ On the server, deploy from a Git repository and ref:
 
 The server script clones/fetches the requested ref into `/home/ubuntu/source-theme-releases`, verifies the theme, backs up the current live theme, syncs files to `/var/www/ghost/content/themes/source`, restarts Ghost, and runs smoke checks.
 
+Production applies should use a fixed production tag or full commit SHA, not a moving branch:
+
+```bash
+/home/ubuntu/codex-tools/scripts/deploy-source-from-git.sh --repo=github-deutschmitbuba-source:Anubiaz/deutschmitbuba-source-theme.git --ref=prod-2026-05-07 --dry-run
+```
+
+Use branch refs such as `main` only for dry-runs.
