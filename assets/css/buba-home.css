@@ -1209,7 +1209,7 @@
     font-weight: 900;
 }
 
-.buba-membership img {
+.buba-membership > img {
     position: absolute;
     right: 16px;
     bottom: 10px;
@@ -1789,7 +1789,7 @@
         max-width: 42rem;
     }
 
-    .buba-membership img {
+    .buba-membership > img {
         right: 22px;
         bottom: 12px;
         width: 148px;
@@ -1969,7 +1969,7 @@
         margin-top: 11px;
     }
 
-    .buba-membership img {
+    .buba-membership > img {
         right: 10px;
         bottom: 0;
         width: 112px;
