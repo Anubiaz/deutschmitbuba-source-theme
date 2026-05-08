@@ -2,6 +2,13 @@ node_modules/
 dist/
 package-lock.json
 npm-shrinkwrap.json
+qa/a11y/*
+qa/lighthouse/*
+qa/screenshots/*
+qa/tmp/*
+!qa/a11y/.gitkeep
+!qa/lighthouse/.gitkeep
+!qa/screenshots/.gitkeep
 .env
 .env.*
 *.log

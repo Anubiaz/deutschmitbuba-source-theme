@@ -12,3 +12,5 @@
 ```
 
 - `node_modules/`, `dist/`, and npm lockfiles are not deployment sources.
+- For larger changes, use the QA scripts in `package.json`: `yarn qa:all` or targeted `yarn qa:gscan`, `yarn qa:css`, `yarn qa:a11y`, `yarn qa:screenshots`, `yarn qa:lighthouse`.
+- QA artifacts are written under `qa/` and should be referenced by path instead of pasting long output into chat.
