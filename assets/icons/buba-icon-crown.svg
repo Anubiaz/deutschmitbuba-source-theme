@@ -1,8 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" role="img" aria-labelledby="title desc">
-  <title id="title">Crown icon outline</title>
-  <desc id="desc">A clean golden outline crown icon with transparent background.</desc>
-  <g fill="none" stroke="#FFC107" stroke-linecap="round" stroke-linejoin="round">
-    <path stroke-width="4.5" d="M15 41.5 11.7 23c-.3-1.7 1.8-2.8 3-1.6l9.9 9.9 6-16.9c.5-1.6 2.9-1.6 3.4 0l6 16.9 9.9-9.9c1.2-1.2 3.3-.1 3 1.6l-3.3 18.5c-.3 1.3-1.4 2.2-2.7 2.2H17.7c-1.3 0-2.4-.9-2.7-2.2Z"/>
-    <path stroke-width="4.5" d="M15 50h34"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">Crown icon</title>
+  <desc id="desc">A clean golden crown icon with transparent background.</desc>
+  <g fill="none" fill-rule="evenodd">
+    <path fill="#FFC107" d="M15.25 41.1 11.65 22.4c-.34-1.76 1.8-2.92 3.05-1.64l9.72 9.94 5.82-16.5c.58-1.63 2.9-1.63 3.48 0l5.86 16.5 9.72-9.94c1.25-1.28 3.39-.12 3.05 1.64l-3.6 18.7a2.7 2.7 0 0 1-2.66 2.2H17.91a2.7 2.7 0 0 1-2.66-2.2Z"/>
+    <rect width="36" height="7.5" x="14" y="46" fill="#FFC107" rx="2.5"/>
+    <path fill="#F2A900" d="M15.2 50.6h33.6c.66 0 1.2.54 1.2 1.2v.5c0 .66-.54 1.2-1.2 1.2H15.2c-.66 0-1.2-.54-1.2-1.2v-.5c0-.66.54-1.2 1.2-1.2Z" opacity=".55"/>
+    <path fill="#FFE082" d="M31.38 15.27c.22-.64 1.12-.64 1.35 0l5.7 16.07 1.04 2.92-2.18-2.24-4.28-12.08c-.34-.95-1.68-.95-2.02 0l-4.28 12.08-2.18 2.24 1.04-2.92 5.81-16.07Z" opacity=".9"/>
   </g>
 </svg>

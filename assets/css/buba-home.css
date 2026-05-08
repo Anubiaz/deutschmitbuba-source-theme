@@ -841,11 +841,12 @@
     }
 
     .buba-hero h1 {
-        font-size: 3.85rem;
+        font-size: 4.15rem;
     }
 
     .buba-hero-copy > p {
         max-width: 430px;
+        font-size: 1.28rem;
     }
 
     .buba-benefits {
@@ -867,29 +868,29 @@
 
     .buba-benefits .buba-benefit-icon {
         grid-row: auto;
-        width: 22px;
-        height: 22px;
+        width: 28px;
+        height: 28px;
         border: 0;
         background: transparent;
         font-size: 1.38rem;
     }
 
     .buba-benefits .buba-benefit-icon img {
-        width: 21px;
-        height: 21px;
+        width: 26px;
+        height: 26px;
     }
 
     .buba-benefits .buba-benefit-icon .buba-benefit-flag {
-        width: 20px;
+        width: 24px;
     }
 
     .buba-benefits strong {
-        font-size: 1rem;
+        font-size: 1.08rem;
         line-height: 1.08;
     }
 
     .buba-benefits small {
-        font-size: 0.88rem;
+        font-size: 0.94rem;
         line-height: 1.12;
     }
 
@@ -991,30 +992,31 @@
     }
 
     .buba-hero h1 {
-        font-size: 4.35rem;
+        font-size: 4.85rem;
     }
 
     .buba-hero-copy > p {
-        max-width: 420px;
+        max-width: 460px;
+        font-size: 1.34rem;
     }
 
     .buba-benefits .buba-benefit-icon {
-        width: 22px;
-        height: 22px;
+        width: 30px;
+        height: 30px;
         font-size: 1.24rem;
     }
 
     .buba-benefits .buba-benefit-icon img {
-        width: 21px;
-        height: 21px;
+        width: 28px;
+        height: 28px;
     }
 
     .buba-benefits strong {
-        font-size: 1rem;
+        font-size: 1.1rem;
     }
 
     .buba-benefits small {
-        font-size: 0.86rem;
+        font-size: 0.94rem;
     }
 }
 
@@ -1187,21 +1189,26 @@
         linear-gradient(135deg, #fff9ec, #fff0c8);
 }
 
-.buba-membership h2 {
+.buba-membership-heading {
     position: relative;
     z-index: 2;
+    display: grid;
+    grid-template-columns: 28px minmax(0, 1fr);
+    align-items: start;
+    gap: 8px;
     max-width: 32rem;
+}
+
+.buba-membership h2 {
     font-size: 1.9rem;
     line-height: 1.1;
 }
 
 .buba-crown {
-    position: relative;
-    z-index: 2;
     display: block;
-    width: 32px;
-    height: 32px;
-    margin-bottom: 4px;
+    width: 28px;
+    height: 28px;
+    margin-top: -2px;
 }
 
 .buba-crown img {
