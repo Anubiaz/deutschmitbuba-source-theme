@@ -1932,40 +1932,42 @@
     .buba-membership {
         grid-column: auto;
         min-height: 226px;
-        padding: 17px 18px 18px;
+        padding: 18px 18px 18px;
     }
 
     .buba-membership h2 {
-        max-width: 240px;
-        font-size: 1.72rem;
-        line-height: 1.08;
+        max-width: 270px;
+        font-size: 1.74rem;
+        line-height: 1.1;
     }
 
     .buba-membership ul {
         gap: 4px;
-        margin: 10px 0;
+        margin: 10px 0 12px;
     }
 
     .buba-membership li {
-        font-size: 0.98rem;
-        line-height: 1.14;
+        font-size: 1rem;
+        line-height: 1.16;
     }
 
     .buba-membership .buba-button {
-        min-height: 34px;
-        padding: 9px 13px;
-        font-size: 1.02rem;
+        width: min(210px, 100%);
+        min-height: 38px;
+        padding: 10px 15px;
+        font-size: 1.04rem;
     }
 
     .buba-membership p {
-        max-width: 170px;
+        max-width: 188px;
+        margin-top: 11px;
     }
 
     .buba-membership img {
-        right: 0;
-        bottom: -15px;
-        width: 126px;
-        height: 136px;
+        right: 10px;
+        bottom: 0;
+        width: 112px;
+        height: 118px;
     }
 
     .buba-latest-grid {
