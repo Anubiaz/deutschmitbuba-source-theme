@@ -1,8 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
-  <g stroke="#5B5CE2" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="4" y="10" width="24" height="16" rx="2.5"/>
-<path d="M12 10V7.8C12 6.8 12.8 6 13.8 6h4.4c1 0 1.8.8 1.8 1.8V10"/>
-<path d="M4 15.5h24"/>
-<path d="M14 17.2h4"/>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="23 23 50 52" fill="none" role="img" aria-labelledby="title desc">
+  <title id="title">Beruf Icon</title>
+  <desc id="desc">Scharfes Linien-Icon mit Aktentasche für Alltag und Beruf, ohne runden Rand.</desc>
+  <path d="M36 39.5v-5.8c0-3.2 2.6-5.7 5.8-5.7h12.4c3.2 0 5.8 2.5 5.8 5.7v5.8"
+        fill="none" stroke="#5A5DEB" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="27" y="39" width="42" height="31" rx="7" fill="none" stroke="#5A5DEB" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M27 50.5h42" fill="none" stroke="#5A5DEB" stroke-width="5" stroke-linecap="round"/>
+  <path d="M43 52h10" fill="none" stroke="#5A5DEB" stroke-width="5" stroke-linecap="round"/>
 </svg>

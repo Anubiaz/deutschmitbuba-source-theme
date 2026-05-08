@@ -671,16 +671,16 @@
 
 .buba-benefits li {
     display: grid;
-    grid-template-columns: 32px minmax(0, 1fr);
+    grid-template-columns: 30px minmax(0, 1fr);
     align-items: center;
     justify-items: start;
-    gap: 4px 8px;
-    min-height: 58px;
-    padding: 10px;
+    gap: 3px 9px;
+    min-height: 60px;
+    padding: 9px 10px;
     text-align: left;
-    border: 1px solid #e7c977;
+    border: 1px solid #e3d3ad;
     border-radius: var(--buba-radius);
-    background: rgb(255 255 255 / 0.82);
+    background: rgb(255 255 255 / 0.9);
     box-shadow: 0 6px 16px rgb(11 31 51 / 0.04);
 }
 
@@ -688,19 +688,20 @@
     display: grid;
     place-items: center;
     grid-row: span 2;
-    width: 32px;
-    height: 32px;
-    border: 1px solid #f2c94c;
+    width: 30px;
+    height: 30px;
+    border: 0;
     border-radius: 999px;
     color: var(--buba-blue);
-    background: #fff;
+    background: rgb(255 248 230 / 0.78);
     font-size: 1.12rem;
     line-height: 1;
 }
 
 .buba-benefits .buba-benefit-icon img {
-    width: 100%;
-    height: 100%;
+    width: 23px;
+    height: 23px;
+    object-fit: contain;
 }
 
 .buba-benefits .buba-benefit-icon .buba-benefit-flag {
@@ -866,17 +867,30 @@
 
     .buba-benefits .buba-benefit-icon {
         grid-row: auto;
-        width: 46px;
-        height: 46px;
+        width: 22px;
+        height: 22px;
+        border: 0;
+        background: transparent;
         font-size: 1.38rem;
     }
 
+    .buba-benefits .buba-benefit-icon img {
+        width: 21px;
+        height: 21px;
+    }
+
+    .buba-benefits .buba-benefit-icon .buba-benefit-flag {
+        width: 20px;
+    }
+
     .buba-benefits strong {
-        font-size: 1.2rem;
+        font-size: 1rem;
+        line-height: 1.08;
     }
 
     .buba-benefits small {
-        font-size: 1.02rem;
+        font-size: 0.88rem;
+        line-height: 1.12;
     }
 
     .buba-hero-media {
@@ -985,17 +999,22 @@
     }
 
     .buba-benefits .buba-benefit-icon {
-        width: 44px;
-        height: 44px;
+        width: 22px;
+        height: 22px;
         font-size: 1.24rem;
     }
 
+    .buba-benefits .buba-benefit-icon img {
+        width: 21px;
+        height: 21px;
+    }
+
     .buba-benefits strong {
-        font-size: 1.16rem;
+        font-size: 1rem;
     }
 
     .buba-benefits small {
-        font-size: 0.98rem;
+        font-size: 0.86rem;
     }
 }
 
