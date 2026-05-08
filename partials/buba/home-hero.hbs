@@ -7,7 +7,7 @@
             <div class="buba-actions">
                 <a class="buba-button buba-button-primary" href="#neueste-beitraege">Kostenlos starten <span aria-hidden="true">→</span></a>
                 {{#if @site.members_enabled}}
-                    <a class="buba-button buba-button-secondary" href="#/portal/signup" data-portal="signup">Mitglied werden</a>
+                    <a class="buba-button buba-button-secondary" href="#/portal/signup" data-portal="signup"><img class="buba-button-icon" src="{{asset "icons/buba-icon-crown.svg"}}" alt="" aria-hidden="true" loading="eager">Mitglied werden</a>
                 {{else}}
                     <a class="buba-button buba-button-secondary" href="#themen">Themen ansehen</a>
                 {{/if}}
