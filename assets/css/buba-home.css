@@ -661,6 +661,16 @@
     flex: 0 0 auto;
 }
 
+.buba-button-primary .buba-button-icon,
+.home-template .gh-navigation .gh-button .buba-button-icon {
+    width: 18px;
+    height: 18px;
+    padding: 2px;
+    border-radius: 4px;
+    background: rgb(255 255 255 / 0.68);
+    box-sizing: content-box;
+}
+
 .buba-benefits {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
