@@ -7,17 +7,17 @@
             <div class="buba-actions">
                 <a class="buba-button buba-button-primary" href="#neueste-beitraege">Kostenlos starten <span aria-hidden="true">→</span></a>
                 {{#if @site.members_enabled}}
-                    <a class="buba-button buba-button-secondary" href="#/portal/signup" data-portal="signup"><img class="buba-button-icon" src="{{asset "icons/buba-icon-crown.svg"}}" alt="" aria-hidden="true" loading="eager">Mitglied werden</a>
+                    <a class="buba-button buba-button-secondary buba-membership-cta" href="#/portal/signup" data-portal="signup"><img class="buba-button-icon" src="{{asset "icons/buba-icon-crown.svg"}}" alt="" aria-hidden="true" loading="eager">Mitglied werden</a>
                 {{else}}
                     <a class="buba-button buba-button-secondary" href="#themen">Themen ansehen</a>
                 {{/if}}
             </div>
 
             <ul class="buba-benefits" aria-label="Lernvorteile">
-                <li><span class="buba-benefit-icon"><img class="buba-benefit-level" src="{{asset "icons/buba-icon-level-a1-b1.svg"}}" alt="" loading="eager"></span><strong>A1 bis B1</strong><small>Alle Niveaus</small></li>
-                <li><span class="buba-benefit-icon"><img class="buba-benefit-glyph" src="{{asset "icons/buba-icon-briefcase.svg"}}" alt="" loading="eager"></span><strong>Alltag & Beruf</strong><small>Praxisnah lernen</small></li>
+                <li><span class="buba-benefit-icon"><img src="{{asset "icons/buba-icon-level-a1-b1.svg"}}" alt="" loading="eager"></span><strong>A1 bis B1</strong><small>Alle Niveaus</small></li>
+                <li><span class="buba-benefit-icon"><img src="{{asset "icons/buba-icon-briefcase.svg"}}" alt="" loading="eager"></span><strong>Alltag & Beruf</strong><small>Praxisnah lernen</small></li>
                 <li><span class="buba-benefit-icon"><img class="buba-benefit-flag" src="{{asset "icons/buba-icon-ukraine.png"}}" alt="" loading="eager" width="24" height="16"></span><strong>Mit ukrainischen Hilfen</strong><small>Вивчай легко!</small></li>
-                <li><span class="buba-benefit-icon"><img class="buba-benefit-glyph" src="{{asset "icons/buba-icon-star.svg"}}" alt="" loading="eager"></span><strong>Einfach & verständlich</strong><small>So einfach wie möglich</small></li>
+                <li><span class="buba-benefit-icon"><img src="{{asset "icons/buba-icon-star.svg"}}" alt="" loading="eager"></span><strong>Einfach & verständlich</strong><small>So einfach wie möglich</small></li>
             </ul>
         </div>
 

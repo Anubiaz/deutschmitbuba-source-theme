@@ -69,7 +69,7 @@
                         {{#unless @site.members_invite_only}}
                             <a href="#/portal/signin" data-portal="signin">Anmelden</a>
                             {{#unless hideSubscribeButton}}
-                                <a class="gh-button buba-nav-membership-button" href="#/portal/signup" data-portal="signup"><img class="buba-button-icon" src="{{asset "icons/buba-icon-crown.svg"}}" alt="" aria-hidden="true" loading="eager">Mitglied werden</a>
+                                <a class="gh-button buba-membership-cta" href="#/portal/signup" data-portal="signup"><img class="buba-button-icon" src="{{asset "icons/buba-icon-crown.svg"}}" alt="" aria-hidden="true" loading="eager">Mitglied werden</a>
                             {{/unless}}
                         {{else}}
                             <a class="gh-button" href="#/portal/signin" data-portal="signin">Anmelden</a>
