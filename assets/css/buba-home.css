@@ -324,6 +324,12 @@
     transition: background 160ms ease, box-shadow 160ms ease, transform 160ms ease;
 }
 
+.home-template .gh-navigation .buba-nav-membership-button {
+    width: 152px;
+    gap: 6px;
+    padding-inline: 14px;
+}
+
 .home-template .gh-button {
     border-radius: 7px;
 }
@@ -653,6 +659,12 @@
     width: 20px;
     height: 20px;
     flex: 0 0 auto;
+}
+
+.buba-button-primary .buba-button-icon,
+.home-template .gh-navigation .gh-button .buba-button-icon {
+    filter: brightness(0) saturate(100%);
+    opacity: 0.78;
 }
 
 .buba-benefits {
