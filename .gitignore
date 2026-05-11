@@ -6,6 +6,9 @@ qa/a11y/*
 qa/lighthouse/*
 qa/screenshots/*
 qa/tmp/*
+qa/point-*/
+qa/preview-*/
+qa/preview-current*/
 !qa/a11y/.gitkeep
 !qa/lighthouse/.gitkeep
 !qa/screenshots/.gitkeep

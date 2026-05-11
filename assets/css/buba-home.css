@@ -610,6 +610,10 @@
     font-size: 0.62em;
 }
 
+.buba-mobile-vignette {
+    display: none;
+}
+
 .buba-hero-copy > p {
     max-width: 100%;
     margin-top: 9px;
@@ -757,7 +761,79 @@
     object-position: center 42%;
 }
 
+@media (max-width: 767px) {
+    .buba-mobile-vignette {
+        display: grid;
+        float: right;
+        place-items: end center;
+        width: 104px;
+        height: 104px;
+        margin: 0 0 6px 12px;
+        overflow: hidden;
+        border: 1px solid #efdba5;
+        border-radius: 999px;
+        background: radial-gradient(circle at 50% 18%, #fff9df, #ffe5a4 72%);
+        box-shadow: 0 12px 24px rgb(11 31 51 / 0.1);
+    }
+
+    .buba-mobile-vignette img {
+        display: block;
+        width: 86px;
+        height: 90px;
+        object-fit: contain;
+        object-position: center bottom;
+    }
+
+    .buba-actions {
+        clear: both;
+    }
+
+    .buba-hero-media,
+    .buba-membership > img,
+    .buba-newsletter > img {
+        display: none;
+    }
+
+    .buba-hero-copy {
+        padding-bottom: 22px;
+    }
+
+    .buba-membership {
+        padding-bottom: 20px;
+    }
+
+    .buba-review-card {
+        min-height: 252px;
+        padding: 24px 20px;
+    }
+
+    .buba-review-card::before {
+        top: 28px;
+        right: 18px;
+        font-size: 6.5rem;
+    }
+
+    .buba-review-stage {
+        min-height: 140px;
+    }
+
+    .buba-review-slide blockquote {
+        font-size: 1.22rem;
+    }
+}
+
 @media (max-width: 390px) {
+    .buba-mobile-vignette {
+        width: 92px;
+        height: 92px;
+        margin-left: 10px;
+    }
+
+    .buba-mobile-vignette img {
+        width: 78px;
+        height: 82px;
+    }
+
     .buba-hero-copy {
         padding-top: 22px;
     }
@@ -1030,6 +1106,209 @@
     }
 }
 
+/* Reversible homepage method block: remove this section and partials/buba/home-method.hbs to roll back. */
+.buba-method {
+    padding-top: clamp(18px, 5vw, 34px);
+}
+
+.buba-method-panel {
+    position: relative;
+    display: grid;
+    gap: 18px;
+    overflow: hidden;
+    padding: 22px;
+    border: 1px solid rgb(255 255 255 / 0.12);
+    border-radius: var(--buba-radius);
+    background:
+        radial-gradient(circle at 88% 8%, rgb(255 191 0 / 0.24), transparent 28%),
+        radial-gradient(circle at 16% 90%, rgb(0 108 255 / 0.24), transparent 34%),
+        linear-gradient(135deg, #061f33, #092c45 58%, #061b2d);
+    box-shadow: 0 22px 48px rgb(6 34 54 / 0.18);
+}
+
+.buba-method-panel::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(90deg, rgb(255 255 255 / 0.08), transparent 42%, rgb(255 191 0 / 0.11));
+    opacity: 1;
+    pointer-events: none;
+}
+
+.buba-method-panel > * {
+    position: relative;
+    z-index: 1;
+}
+
+.buba-kicker {
+    width: fit-content;
+    margin: 0 0 8px;
+    padding: 5px 9px;
+    color: #08253d;
+    background: var(--buba-yellow);
+    border-radius: 999px;
+    font-size: 0.92rem;
+    font-weight: 900;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.buba-method-intro h2 {
+    max-width: 760px;
+    margin: 0;
+    color: #fff;
+    font-size: clamp(2.35rem, 6.2vw, 3.6rem);
+    font-weight: 950;
+    line-height: 1.02;
+}
+
+.buba-method-intro > p:not(.buba-kicker) {
+    max-width: 650px;
+    margin-top: 10px;
+    color: rgb(255 255 255 / 0.78);
+    font-size: 1.18rem;
+    line-height: 1.42;
+}
+
+.buba-method-steps {
+    display: grid;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.buba-method-steps li {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 3px 12px;
+    align-items: center;
+    padding: 14px;
+    border: 1px solid rgb(255 255 255 / 0.16);
+    border-radius: var(--buba-radius);
+    background: rgb(255 255 255 / 0.94);
+    box-shadow: 0 14px 30px rgb(0 0 0 / 0.12);
+}
+
+.buba-method-steps span {
+    grid-row: span 2;
+    display: grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    color: #8a6500;
+    background: rgb(255 191 0 / 0.18);
+    border-radius: 999px;
+    font-size: 1.02rem;
+    font-weight: 950;
+}
+
+.buba-method-steps strong {
+    color: var(--buba-ink);
+    font-size: 1.28rem;
+    font-weight: 950;
+    line-height: 1.06;
+}
+
+.buba-method-steps small {
+    color: var(--buba-muted);
+    font-size: 1.02rem;
+    line-height: 1.25;
+}
+
+.buba-method-example {
+    display: grid;
+    gap: 10px;
+    padding: 16px;
+    color: var(--buba-ink);
+    border-radius: var(--buba-radius);
+    background: linear-gradient(135deg, #fff4c9, #fffdf5);
+}
+
+.buba-method-example span {
+    color: #8a6500;
+    font-size: 0.98rem;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.buba-method-example p {
+    margin: 0;
+    font-size: 1.26rem;
+    line-height: 1.28;
+}
+
+.buba-method-example strong {
+    color: var(--buba-ink);
+}
+
+.buba-method-example a {
+    width: fit-content;
+    color: var(--buba-ink);
+    font-size: 1.04rem;
+    font-weight: 850;
+}
+
+.buba-method-example a:hover {
+    color: var(--buba-yellow);
+}
+
+@media (min-width: 768px) {
+    .buba-method-panel {
+        grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+        align-items: stretch;
+        gap: 22px;
+        padding: 28px;
+    }
+
+    .buba-method-intro {
+        align-self: center;
+    }
+
+    .buba-method-steps {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .buba-method-steps li {
+        grid-template-columns: minmax(0, 1fr);
+        align-content: start;
+        min-height: 132px;
+    }
+
+    .buba-method-steps span {
+        grid-row: auto;
+    }
+
+    .buba-method-example {
+        grid-column: 1 / -1;
+        grid-template-columns: auto minmax(0, 1fr) auto;
+        align-items: center;
+        gap: 16px;
+        padding: 16px 18px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .buba-method-panel {
+        grid-template-columns: minmax(340px, 0.9fr) minmax(0, 1.35fr) minmax(260px, 0.75fr);
+        gap: 26px;
+        padding: 30px;
+    }
+
+    .buba-method-steps {
+        align-self: stretch;
+    }
+
+    .buba-method-example {
+        grid-column: auto;
+        grid-template-columns: minmax(0, 1fr);
+        align-content: center;
+        min-height: 100%;
+        padding: 20px;
+    }
+}
+
 .buba-feature-grid {
     grid-template-columns: minmax(0, 1fr);
     align-items: stretch;
@@ -1069,6 +1348,15 @@
     border-color: #cfd9e5;
     box-shadow: var(--buba-shadow-hover);
     transform: translateY(-1px);
+}
+
+.buba-topic-grid .buba-topic-cta {
+    background: #08253d;
+}
+
+.buba-topic-grid .buba-topic-cta strong,
+.buba-topic-grid .buba-topic-cta small {
+    color: #fff;
 }
 
 .buba-feature-card.buba-feature-primary {
@@ -1539,6 +1827,156 @@
     font-weight: 800;
 }
 
+.buba-review-card {
+    position: relative;
+    display: grid;
+    align-content: start;
+    gap: 16px;
+    min-height: 226px;
+    padding: 24px 22px;
+    background:
+        radial-gradient(circle at 92% 88%, rgb(255 191 0 / 0.12), rgb(255 191 0 / 0) 34%),
+        linear-gradient(135deg, #fffdf8, #fff8e8);
+}
+
+.buba-review-card::before {
+    content: "“";
+    position: absolute;
+    top: 24px;
+    right: 18px;
+    color: rgb(255 191 0 / 0.16);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 7.8rem;
+    font-weight: 900;
+    line-height: 0.72;
+    pointer-events: none;
+}
+
+.buba-review-stars {
+    position: relative;
+    z-index: 1;
+    color: var(--buba-yellow);
+    font-size: 1.56rem;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: 2px;
+}
+
+.buba-review-stage {
+    position: relative;
+    z-index: 1;
+    min-height: 132px;
+}
+
+.buba-review-slide {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    align-content: space-between;
+    gap: 18px;
+    margin: 0;
+    opacity: 0;
+    transform: translateY(7px);
+    animation: buba-review-card-rotate 18s infinite;
+}
+
+.buba-review-slide:nth-child(2) {
+    animation-delay: 6s;
+}
+
+.buba-review-slide:nth-child(3) {
+    animation-delay: 12s;
+}
+
+.buba-review-slide blockquote {
+    margin: 0;
+    padding: 0;
+    border-left: 0;
+    background: transparent;
+    color: var(--buba-ink);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.28rem;
+    font-weight: 700;
+    line-height: 1.34;
+}
+
+.buba-review-slide figcaption {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    padding-top: 12px;
+    border-top: 1px solid rgb(11 31 51 / 0.09);
+}
+
+.buba-review-slide figcaption strong {
+    color: var(--buba-ink);
+    font-size: 1.1rem;
+    font-weight: 950;
+}
+
+.buba-review-slide figcaption small {
+    color: var(--buba-muted);
+    font-size: 0.96rem;
+    font-weight: 760;
+}
+
+.buba-review-dots {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    gap: 7px;
+}
+
+.buba-review-dots span {
+    width: 6px;
+    height: 6px;
+    border-radius: 999px;
+    background: rgb(11 31 51 / 0.14);
+}
+
+.buba-review-dots span:first-child {
+    width: 18px;
+    background: var(--buba-yellow);
+}
+
+.buba-review-card:hover .buba-review-slide,
+.buba-review-card:focus-within .buba-review-slide {
+    animation-play-state: paused;
+}
+
+@keyframes buba-review-card-rotate {
+    0%,
+    29% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    35%,
+    94% {
+        opacity: 0;
+        transform: translateY(-7px);
+    }
+
+    95%,
+    100% {
+        opacity: 0;
+        transform: translateY(7px);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .buba-review-slide {
+        opacity: 0;
+        transform: none;
+        animation: none;
+    }
+
+    .buba-review-slide:first-child {
+        opacity: 1;
+    }
+}
+
 .home-template .gh-footer {
     margin-top: 0;
     padding-block: 28px 24px;
@@ -1954,6 +2392,18 @@
         grid-column: auto;
     }
 
+    .buba-review-card {
+        min-height: 246px;
+    }
+
+    .buba-review-stage {
+        min-height: 142px;
+    }
+
+    .buba-review-slide blockquote {
+        font-size: 1.2rem;
+    }
+
     .buba-feature-grid {
         grid-template-columns: minmax(0, 1.06fr) minmax(0, 1fr) minmax(270px, 0.88fr);
     }
@@ -2012,13 +2462,13 @@
     .buba-latest-grid {
         grid-template-columns: repeat(6, minmax(0, 1fr));
     }
+
+    .buba-topic-grid {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+    }
 }
 
 @media (min-width: 1280px) {
-    .buba-grid-7 {
-        grid-template-columns: repeat(7, minmax(0, 1fr));
-    }
-
     .buba-post-card {
         min-height: 210px;
     }
