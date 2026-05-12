@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="{{@site.locale}}">
 <head>
+    {{> "buba/site-consent-head"}}
+    {{> "buba/site-tracking-head"}}
+    {{> "buba/site-ads-head"}}
 
     {{!-- Basic meta - advanced meta is output with {{ghost_head}} below --}}
     <title>{{meta_title page=(t " (Page %)")}}</title>
@@ -56,6 +59,7 @@
 <body class="{{body_class}} has-{{#match @custom.title_font "Elegant serif"}}serif{{else match @custom.title_font "Consistent mono"}}mono{{else}}sans{{/match}}-title has-{{#match @custom.body_font "Elegant serif"}}serif{{else}}sans{{/match}}-body">
 
 <div class="gh-viewport">
+    {{> "buba/site-tracking-body"}}
     
     {{> "components/navigation" navigationLayout=@custom.navigation_layout}}
 
