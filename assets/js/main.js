@@ -74,6 +74,39 @@
     });
 })();
 
+/* Homepage review rotation */
+(function () {
+    const cards = document.querySelectorAll('.buba-review-card');
+    if (!cards.length) return;
+
+    cards.forEach(function (card) {
+        const slides = Array.from(card.querySelectorAll('.buba-review-slide'));
+        const dots = Array.from(card.querySelectorAll('.buba-review-dots span'));
+        if (slides.length < 2) return;
+
+        let index = 0;
+
+        const show = function (nextIndex) {
+            index = nextIndex % slides.length;
+
+            slides.forEach(function (slide, slideIndex) {
+                slide.classList.toggle('is-active', slideIndex === index);
+            });
+
+            dots.forEach(function (dot, dotIndex) {
+                dot.classList.toggle('is-active', dotIndex === index);
+            });
+        };
+
+        card.classList.add('is-rotating');
+        show(0);
+
+        window.setInterval(function () {
+            show(index + 1);
+        }, 4000);
+    });
+})();
+
 /* Add lightbox to gallery images */
 (function () {
     lightbox(

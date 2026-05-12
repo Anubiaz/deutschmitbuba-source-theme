@@ -1867,15 +1867,20 @@
     gap: 18px;
     margin: 0;
     opacity: 0;
-    animation: buba-review-slide-one 18s infinite;
+    transition: opacity 0.28s ease;
 }
 
-.buba-review-slide:nth-child(2) {
-    animation-name: buba-review-slide-two;
+.buba-review-slide:first-child,
+.buba-review-card.is-rotating .buba-review-slide.is-active {
+    opacity: 1;
 }
 
-.buba-review-slide:nth-child(3) {
-    animation-name: buba-review-slide-three;
+.buba-review-card.is-rotating .buba-review-slide {
+    opacity: 0;
+}
+
+.buba-review-card.is-rotating .buba-review-slide.is-active {
+    opacity: 1;
 }
 
 .buba-review-slide blockquote {
@@ -1923,56 +1928,23 @@
     height: 6px;
     border-radius: 999px;
     background: rgb(11 31 51 / 0.14);
+    transition: width 0.28s ease, background-color 0.28s ease;
 }
 
-.buba-review-dots span:first-child {
+.buba-review-dots span:first-child,
+.buba-review-card.is-rotating .buba-review-dots span.is-active {
     width: 18px;
     background: var(--buba-yellow);
 }
 
-@keyframes buba-review-slide-one {
-    0%,
-    29% {
-        opacity: 1;
-    }
-
-    35%,
-    100% {
-        opacity: 0;
-    }
+.buba-review-card.is-rotating .buba-review-dots span {
+    width: 6px;
+    background: rgb(11 31 51 / 0.14);
 }
 
-@keyframes buba-review-slide-two {
-    0%,
-    29% {
-        opacity: 0;
-    }
-
-    35%,
-    62% {
-        opacity: 1;
-    }
-
-    68%,
-    100% {
-        opacity: 0;
-    }
-}
-
-@keyframes buba-review-slide-three {
-    0%,
-    62% {
-        opacity: 0;
-    }
-
-    68%,
-    95% {
-        opacity: 1;
-    }
-
-    100% {
-        opacity: 0;
-    }
+.buba-review-card.is-rotating .buba-review-dots span.is-active {
+    width: 18px;
+    background: var(--buba-yellow);
 }
 
 .home-template .gh-footer {
