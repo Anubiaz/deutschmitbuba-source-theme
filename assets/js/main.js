@@ -80,6 +80,8 @@
     if (!cards.length) return;
 
     cards.forEach(function (card) {
+        if (card.dataset.reviewRotating === 'true') return;
+
         const slides = Array.from(card.querySelectorAll('.buba-review-slide'));
         const dots = Array.from(card.querySelectorAll('.buba-review-dots span'));
         if (slides.length < 2) return;
@@ -98,6 +100,7 @@
             });
         };
 
+        card.dataset.reviewRotating = 'true';
         card.classList.add('is-rotating');
         show(0);
 
