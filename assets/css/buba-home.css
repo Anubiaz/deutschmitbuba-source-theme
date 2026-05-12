@@ -1867,16 +1867,15 @@
     gap: 18px;
     margin: 0;
     opacity: 0;
-    transform: translateY(7px);
-    animation: buba-review-card-rotate 18s infinite;
+    animation: buba-review-slide-one 18s infinite;
 }
 
 .buba-review-slide:nth-child(2) {
-    animation-delay: 6s;
+    animation-name: buba-review-slide-two;
 }
 
 .buba-review-slide:nth-child(3) {
-    animation-delay: 12s;
+    animation-name: buba-review-slide-three;
 }
 
 .buba-review-slide blockquote {
@@ -1931,40 +1930,48 @@
     background: var(--buba-yellow);
 }
 
-.buba-review-card:hover .buba-review-slide,
-.buba-review-card:focus-within .buba-review-slide {
-    animation-play-state: paused;
-}
-
-@keyframes buba-review-card-rotate {
+@keyframes buba-review-slide-one {
     0%,
     29% {
         opacity: 1;
-        transform: translateY(0);
     }
 
     35%,
-    94% {
-        opacity: 0;
-        transform: translateY(-7px);
-    }
-
-    95%,
     100% {
         opacity: 0;
-        transform: translateY(7px);
     }
 }
 
-@media (prefers-reduced-motion: reduce) {
-    .buba-review-slide {
+@keyframes buba-review-slide-two {
+    0%,
+    29% {
         opacity: 0;
-        transform: none;
-        animation: none;
     }
 
-    .buba-review-slide:first-child {
+    35%,
+    62% {
         opacity: 1;
+    }
+
+    68%,
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes buba-review-slide-three {
+    0%,
+    62% {
+        opacity: 0;
+    }
+
+    68%,
+    95% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
     }
 }
 
