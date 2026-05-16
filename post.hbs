@@ -115,8 +115,15 @@
                 {{#if primary_tag}}
                     <a href="{{primary_tag.url}}">{{primary_tag.name}}</a>
                 {{/if}}
-                <a href="/tag/grammatik/">Grammatik</a>
-                <a href="/tag/alltag/">Alltag</a>
+                {{#match primary_tag.slug "!=" "grammatik"}}
+                    <a href="/tag/grammatik/">Grammatik</a>
+                {{/match}}
+                {{#match primary_tag.slug "!=" "wortschatz"}}
+                    <a href="/tag/wortschatz/">Wortschatz</a>
+                {{/match}}
+                {{#match primary_tag.slug "!=" "alltag"}}
+                    <a href="/tag/alltag/">Alltag</a>
+                {{/match}}
                 {{#if @member}}
                     <a href="/mitglieder/">Lernbereich</a>
                 {{/if}}
