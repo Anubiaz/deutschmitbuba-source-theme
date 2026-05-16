@@ -74,7 +74,7 @@
                         <li>Monatlich kündbar</li>
                     </ul>
                     {{#if @site.paid_members_enabled}}
-                        <a class="buba-button buba-button-primary" href="#/portal/account/plans" data-portal="upgrade">Werbefrei upgraden <span aria-hidden="true">→</span></a>
+                        <button type="button" class="buba-button buba-button-primary" data-portal="upgrade">Werbefrei upgraden <span aria-hidden="true">→</span></button>
                     {{else}}
                         <a class="buba-button buba-button-primary" href="/mitglieder/">Lernbereich öffnen <span aria-hidden="true">→</span></a>
                     {{/if}}
@@ -111,7 +111,7 @@
                 </div>
                 {{#if @site.members_enabled}}
                     <div class="buba-membership-actions">
-                        <a class="buba-button buba-button-primary" href="#/portal/signup" data-portal="signup">Mitglied werden <span aria-hidden="true">→</span></a>
+                        <button type="button" class="buba-button buba-button-primary" data-portal="signup">Mitglied werden <span aria-hidden="true">→</span></button>
                         <a class="buba-link" href="/mitglieder/">Vorteile ansehen <span aria-hidden="true">→</span></a>
                     </div>
                 {{else}}

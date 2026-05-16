@@ -45,15 +45,15 @@
                         <a href="/mitglieder/">Übersicht</a>
                         <a href="/tag/grammatik/">Grammatik</a>
                         {{#if @site.paid_members_enabled}}
-                            <a href="#/portal/account/plans" data-portal="upgrade">Premium aktivieren</a>
+                            <button type="button" class="buba-footer-link" data-portal="upgrade">Premium aktivieren</button>
                         {{/if}}
-                        <a href="#/portal/account" data-portal="account">Konto</a>
+                        <button type="button" class="buba-footer-link" data-portal="account">Konto</button>
                     {{/if}}
                 {{else}}
                     <p class="buba-footer-heading">Mitgliedschaft</p>
                     <a href="{{#is "home"}}#mitgliedschaft{{else}}{{@site.url}}/#mitgliedschaft{{/is}}">Vorteile</a>
                     <a href="{{#is "home"}}#mitgliedschaft{{else}}{{@site.url}}/#mitgliedschaft{{/is}}">Preise</a>
-                    <a href="#/portal/signup" data-portal="signup">Mitglied werden</a>
+                    <button type="button" class="buba-footer-link" data-portal="signup">Mitglied werden</button>
                     <a href="{{#is "home"}}#mitgliedschaft{{else}}{{@site.url}}/#mitgliedschaft{{/is}}">Häufige Fragen</a>
                 {{/if}}
             </nav>

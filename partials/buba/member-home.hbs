@@ -14,12 +14,12 @@
                     <div class="buba-actions">
                         <a class="buba-button buba-button-primary" href="#member-feed">Weiterlernen <span aria-hidden="true">→</span></a>
                         {{#if @member.paid}}
-                            <a class="buba-button buba-button-secondary" href="#/portal/account" data-portal="account">Konto öffnen</a>
+                            <button type="button" class="buba-button buba-button-secondary" data-portal="account">Konto öffnen</button>
                         {{else}}
                             {{#if @site.paid_members_enabled}}
-                                <a class="buba-button buba-button-secondary" href="#/portal/account/plans" data-portal="upgrade">Premium ansehen</a>
+                                <button type="button" class="buba-button buba-button-secondary" data-portal="upgrade">Premium ansehen</button>
                             {{else}}
-                                <a class="buba-button buba-button-secondary" href="#/portal/account" data-portal="account">Konto öffnen</a>
+                                <button type="button" class="buba-button buba-button-secondary" data-portal="account">Konto öffnen</button>
                             {{/if}}
                         {{/if}}
                     </div>
@@ -28,9 +28,9 @@
                     <h1 id="buba-member-title">Dein ruhiger Lernbereich wartet auf dich.</h1>
                     <p>Melde dich an, um dein Konto zu verwalten und die wichtigsten Themen schneller wiederzufinden. Premium-Mitglieder lernen ohne Anzeigen.</p>
                     <div class="buba-actions">
-                        <a class="buba-button buba-button-primary" href="#/portal/signin" data-portal="signin">Anmelden <span aria-hidden="true">→</span></a>
+                        <button type="button" class="buba-button buba-button-primary" data-portal="signin">Anmelden <span aria-hidden="true">→</span></button>
                         {{#if @site.members_enabled}}
-                            <a class="buba-button buba-button-secondary" href="#/portal/signup" data-portal="signup">Mitglied werden</a>
+                            <button type="button" class="buba-button buba-button-secondary" data-portal="signup">Mitglied werden</button>
                         {{/if}}
                     </div>
                 {{/if}}
@@ -44,18 +44,18 @@
                     <strong>{{#if @member.paid}}Premium-Mitglied{{else}}Free-Mitglied{{/if}}</strong>
                     <small>{{@member.email}}</small>
                     {{#if @member.paid}}
-                        <a href="#/portal/account" data-portal="account">Einstellungen öffnen</a>
+                        <button type="button" class="buba-member-text-button" data-portal="account">Einstellungen öffnen</button>
                     {{else}}
                         {{#if @site.paid_members_enabled}}
-                            <a href="#/portal/account/plans" data-portal="upgrade">Premium freischalten</a>
+                            <button type="button" class="buba-member-text-button" data-portal="upgrade">Premium freischalten</button>
                         {{else}}
-                            <a href="#/portal/account" data-portal="account">Einstellungen öffnen</a>
+                            <button type="button" class="buba-member-text-button" data-portal="account">Einstellungen öffnen</button>
                         {{/if}}
                     {{/if}}
                 {{else}}
                     <strong>Noch nicht angemeldet</strong>
                     <small>Ein Login-Link bringt dich direkt zurück.</small>
-                    <a href="#/portal/signin" data-portal="signin">Login-Link senden</a>
+                    <button type="button" class="buba-member-text-button" data-portal="signin">Login-Link senden</button>
                 {{/if}}
             </aside>
         </div>

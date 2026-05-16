@@ -11,12 +11,12 @@
                 {{#if @member}}
                     <a class="buba-button buba-button-primary" href="/mitglieder/">Zum Lernbereich <span aria-hidden="true">→</span></a>
                     {{#if @member.paid}}
-                        <a class="buba-button buba-button-secondary" href="#/portal/account" data-portal="account">Konto öffnen</a>
+                        <button type="button" class="buba-button buba-button-secondary" data-portal="account">Konto öffnen</button>
                     {{else}}
                         {{#if @site.paid_members_enabled}}
-                            <a class="buba-button buba-button-secondary buba-membership-cta" href="#/portal/account/plans" data-portal="upgrade"><img class="buba-button-icon" src="{{asset "icons/buba-icon-crown.svg"}}" alt="" aria-hidden="true" loading="eager">Werbefrei upgraden</a>
+                            <button type="button" class="buba-button buba-button-secondary buba-membership-cta" data-portal="upgrade"><img class="buba-button-icon" src="{{asset "icons/buba-icon-crown.svg"}}" alt="" aria-hidden="true" loading="eager">Werbefrei upgraden</button>
                         {{else}}
-                            <a class="buba-button buba-button-secondary" href="#/portal/account" data-portal="account">Konto öffnen</a>
+                            <button type="button" class="buba-button buba-button-secondary" data-portal="account">Konto öffnen</button>
                         {{/if}}
                     {{/if}}
                 {{else}}
