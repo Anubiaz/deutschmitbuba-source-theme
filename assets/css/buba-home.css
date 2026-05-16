@@ -646,9 +646,12 @@
     width: 100%;
     gap: 9px;
     padding: 10px 17px;
+    border: 0;
     font-size: 1.24rem;
     font-weight: 850;
+    font-family: inherit;
     line-height: 1;
+    cursor: pointer;
 }
 
 .buba-button-primary {
