@@ -1,0 +1,33 @@
+{{!< default}}
+
+{{#post}}
+
+<main id="gh-main" class="buba-about-page">
+    <section class="buba-archive-hero buba-about-hero gh-outer" aria-labelledby="buba-about-title">
+        <div class="buba-archive-hero-inner gh-inner">
+            <div>
+                <p class="buba-kicker">Über Buba</p>
+                <h1 id="buba-about-title">{{title}}</h1>
+                {{#if custom_excerpt}}
+                    <p>{{custom_excerpt}}</p>
+                {{else}}
+                    <p>Einfaches Deutsch für Menschen, die im echten Alltag sicherer sprechen, verstehen und schreiben möchten.</p>
+                {{/if}}
+            </div>
+            <aside class="buba-about-card" aria-label="Arbeitsweise">
+                <strong>klar lernen</strong>
+                <span>kurze Regeln</span>
+                <span>praktische Beispiele</span>
+                <span>Alltag und Beruf</span>
+            </aside>
+        </div>
+    </section>
+
+    <article class="gh-article {{post_class}}">
+        <section class="gh-content gh-canvas is-body">
+            {{content}}
+        </section>
+    </article>
+</main>
+
+{{/post}}

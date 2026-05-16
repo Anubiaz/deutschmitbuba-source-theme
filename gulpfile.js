@@ -46,13 +46,13 @@ function hbs(done) {
 
 function css(done) {
     pump([
-        src(['assets/css/screen.css', 'assets/css/buba-home.css'], {sourcemaps: true}),
+        src(['assets/css/screen.css', 'assets/css/buba-home.css']),
         postcss([
             easyimport,
             autoprefixer(),
             cssnano()
         ]),
-        dest('assets/built/', {sourcemaps: '.'}),
+        dest('assets/built/'),
         livereload()
     ], handleError(done));
 }
@@ -63,10 +63,10 @@ function js(done) {
             // pull in lib files first so our own code can depend on it
             'assets/js/lib/*.js',
             'assets/js/*.js'
-        ], {sourcemaps: true}),
+        ]),
         concat('source.js'),
         uglify(),
-        dest('assets/built/', {sourcemaps: '.'}),
+        dest('assets/built/'),
         livereload()
     ], handleError(done));
 }
@@ -79,6 +79,10 @@ function zipper(done) {
             '**',
             '!node_modules', '!node_modules/**',
             '!dist', '!dist/**',
+            '!qa', '!qa/**',
+            '!.git', '!.git/**',
+            '!.github', '!.github/**',
+            '!**/*.map',
             '!yarn-error.log',
             '!yarn.lock',
             '!gulpfile.js'

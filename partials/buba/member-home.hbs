@@ -1,0 +1,119 @@
+<main id="gh-main" class="buba-member-home">
+    <section class="buba-member-hero" aria-labelledby="buba-member-title">
+        <div class="buba-container buba-member-hero-inner">
+            <div class="buba-member-copy">
+                {{#if @member}}
+                    <p class="buba-kicker">Lernbereich</p>
+                    {{#if @member.paid}}
+                        <h1 id="buba-member-title">Willkommen zurück{{#if @member.name}}, {{@member.name}}{{/if}}.</h1>
+                        <p>Hier sammelst du die wichtigsten Wege durch Deutsch mit Buba: neue Beiträge, klare Themen, Konto und Newsletter. Ohne Anzeigen und ohne Verkaufsflächen.</p>
+                    {{else}}
+                        <h1 id="buba-member-title">Willkommen zurück{{#if @member.name}}, {{@member.name}}{{/if}}.</h1>
+                        <p>Dein kostenloser Lernbereich ist aktiv. Premium entfernt Anzeigen auf Artikeln und macht das Lernen ruhiger.</p>
+                    {{/if}}
+                    <div class="buba-actions">
+                        <a class="buba-button buba-button-primary" href="#member-feed">Weiterlernen <span aria-hidden="true">→</span></a>
+                        {{#if @member.paid}}
+                            <a class="buba-button buba-button-secondary" href="#/portal/account" data-portal="account">Konto öffnen</a>
+                        {{else}}
+                            {{#if @site.paid_members_enabled}}
+                                <a class="buba-button buba-button-secondary" href="#/portal/account/plans" data-portal="upgrade">Premium ansehen</a>
+                            {{else}}
+                                <a class="buba-button buba-button-secondary" href="#/portal/account" data-portal="account">Konto öffnen</a>
+                            {{/if}}
+                        {{/if}}
+                    </div>
+                {{else}}
+                    <p class="buba-kicker">Für Mitglieder</p>
+                    <h1 id="buba-member-title">Dein ruhiger Lernbereich wartet auf dich.</h1>
+                    <p>Melde dich an, um dein Konto zu verwalten und die wichtigsten Themen schneller wiederzufinden. Premium-Mitglieder lernen ohne Anzeigen.</p>
+                    <div class="buba-actions">
+                        <a class="buba-button buba-button-primary" href="#/portal/signin" data-portal="signin">Anmelden <span aria-hidden="true">→</span></a>
+                        {{#if @site.members_enabled}}
+                            <a class="buba-button buba-button-secondary" href="#/portal/signup" data-portal="signup">Mitglied werden</a>
+                        {{/if}}
+                    </div>
+                {{/if}}
+            </div>
+
+            <aside class="buba-member-status" aria-label="Mitgliedsstatus">
+                <span class="buba-member-avatar">
+                    <img src="{{asset "logo/buba_logo-96.webp"}}" alt="{{@site.title}}" width="96" height="96">
+                </span>
+                {{#if @member}}
+                    <strong>{{#if @member.paid}}Premium-Mitglied{{else}}Free-Mitglied{{/if}}</strong>
+                    <small>{{@member.email}}</small>
+                    {{#if @member.paid}}
+                        <a href="#/portal/account" data-portal="account">Einstellungen öffnen</a>
+                    {{else}}
+                        {{#if @site.paid_members_enabled}}
+                            <a href="#/portal/account/plans" data-portal="upgrade">Premium freischalten</a>
+                        {{else}}
+                            <a href="#/portal/account" data-portal="account">Einstellungen öffnen</a>
+                        {{/if}}
+                    {{/if}}
+                {{else}}
+                    <strong>Noch nicht angemeldet</strong>
+                    <small>Ein Login-Link bringt dich direkt zurück.</small>
+                    <a href="#/portal/signin" data-portal="signin">Login-Link senden</a>
+                {{/if}}
+            </aside>
+        </div>
+    </section>
+
+    <section class="buba-section buba-member-paths" aria-labelledby="buba-member-paths-title">
+        <div class="buba-container">
+            <div class="buba-section-head">
+                <h2 id="buba-member-paths-title">Wähle deinen nächsten Lernweg</h2>
+            </div>
+            <div class="buba-member-grid">
+                <a href="/tag/grammatik/"><img src="{{asset "icons/buba-icon-chat.svg"}}" alt="" loading="lazy"><strong>Grammatik klären</strong><small>Regeln, Beispiele und typische Stolperstellen.</small></a>
+                <a href="/tag/wortschatz/"><img src="{{asset "icons/buba-icon-book.svg"}}" alt="" loading="lazy"><strong>Wortschatz festigen</strong><small>Wörter und Wendungen für jeden Tag.</small></a>
+                <a href="/tag/alltag/"><img src="{{asset "icons/buba-icon-people.svg"}}" alt="" loading="lazy"><strong>Alltag üben</strong><small>Arzt, Termine, Wohnen und Behörden.</small></a>
+                <a href="/tag/beruf/"><img src="{{asset "icons/buba-icon-briefcase.svg"}}" alt="" loading="lazy"><strong>Beruf vorbereiten</strong><small>E-Mails, Gespräche und Bewerbungen.</small></a>
+                <a href="/tag/lernen/"><img src="{{asset "icons/buba-icon-lightbulb.svg"}}" alt="" loading="lazy"><strong>Besser lernen</strong><small>Routinen, Motivation und Wiederholung.</small></a>
+                <a href="/tag/kultur/"><img src="{{asset "icons/buba-icon-ukraine.png"}}" alt="" loading="lazy" width="32" height="22"><strong>Kultur verstehen</strong><small>Sprache im deutschen Alltag einordnen.</small></a>
+            </div>
+        </div>
+    </section>
+
+    <section id="member-feed" class="buba-section buba-member-feed" aria-labelledby="buba-member-feed-title">
+        <div class="buba-container">
+            <div class="buba-section-head">
+                <h2 id="buba-member-feed-title">Neue Lektionen</h2>
+                <a href="#buba-member-paths-title">Themen ansehen <span aria-hidden="true">→</span></a>
+            </div>
+            <div class="buba-grid-6 buba-latest-grid">
+                {{#get "posts" include="tags,authors" limit="6"}}
+                    {{#foreach posts}}
+                        <article class="buba-post-card">
+                            <a class="buba-post-image" href="{{url}}" aria-label="{{title}}">
+                                {{#if feature_image}}
+                                    <img
+                                        srcset="{{img_url feature_image size="s" format="webp"}} 320w,
+                                                {{img_url feature_image size="m" format="webp"}} 600w,
+                                                {{img_url feature_image size="l" format="webp"}} 960w"
+                                        sizes="(max-width: 520px) 50vw, (max-width: 1199px) 33vw, 180px"
+                                        src="{{img_url feature_image size="m"}}"
+                                        alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
+                                        loading="lazy"
+                                    >
+                                {{else}}
+                                    <span class="buba-post-placeholder" aria-hidden="true"><img src="{{asset "icons/buba-icon-question.svg"}}" alt="" loading="eager"></span>
+                                {{/if}}
+                            </a>
+                            <div class="buba-post-body">
+                                {{#primary_tag}}<a class="buba-post-tag" href="{{url}}">{{name}}</a>{{/primary_tag}}
+                                <h3><a href="{{url}}">{{title}}</a></h3>
+                                <footer>
+                                    <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="DD. MMM YYYY"}}</time>
+                                    {{#if reading_time}}<span>{{reading_time minute="1 Min." minutes="% Min."}}</span>{{/if}}
+                                </footer>
+                            </div>
+                        </article>
+                    {{/foreach}}
+                {{/get}}
+            </div>
+        </div>
+    </section>
+</main>

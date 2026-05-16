@@ -1,13 +1,14 @@
 {{!< default}}
 {{!-- The tag above means: insert everything in this file into the body of the default.hbs template --}}
 
-<main class="gh-main gh-outer">
+<main id="gh-main" class="gh-main buba-archive-main">
 
     {{#author}}
-        <section class="gh-archive{{#if @custom.show_publication_info_sidebar}} has-sidebar{{/if}} gh-inner">
-            <div class="gh-archive-inner">
-                <div class="gh-archive-wrapper">
-                    <h1 class="gh-article-title is-title">
+        <section class="buba-archive-hero buba-author-hero gh-outer" aria-labelledby="buba-author-title">
+            <div class="buba-archive-hero-inner gh-inner">
+                <div>
+                    <p class="buba-kicker">Autor</p>
+                    <h1 id="buba-author-title">
                         {{#if website}}
                             <a class="gh-author-social-link" href="{{website}}" target="_blank" rel="noopener">{{name}}</a>
                         {{else}}
@@ -15,9 +16,11 @@
                         {{/if}}
                     </h1>
                     {{#if bio}}
-                        <p class="gh-article-excerpt">{{bio}}</p>
+                        <p>{{bio}}</p>
+                    {{else}}
+                        <p>Praktische Deutsch-Erklärungen für Alltag, Beruf und Prüfung.</p>
                     {{/if}}
-                    <footer class="gh-author-meta">
+                    <footer class="gh-author-meta buba-author-meta">
                         <div class="gh-author-social">
                             {{#if twitter}}
                                 <a class="gh-author-social-link" href="{{social_url type="twitter"}}" target="_blank" rel="noopener">{{> "icons/twitter"}}</a>
@@ -53,12 +56,12 @@
                     </footer>
                 </div>
                 {{#if profile_image}}
-                    <img class="gh-article-image" src="{{img_url profile_image size="s"}}" alt="{{name}}">
+                    <img class="buba-author-image" src="{{img_url profile_image size="s"}}" alt="{{name}}">
                 {{/if}}
             </div>
         </section>
     {{/author}}
     
-    {{> "components/post-list" feed="archive" postFeedStyle=@custom.post_feed_style showTitle=false showSidebar=@custom.show_publication_info_sidebar}}
+    {{> "components/post-list" feed="archive" postFeedStyle=@custom.post_feed_style showTitle=false showSidebar=false}}
 
 </main>

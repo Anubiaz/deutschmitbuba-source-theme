@@ -44,25 +44,82 @@
             </article>
         {{/foreach}}
 
-        <aside class="buba-membership" id="mitgliedschaft">
-            <div class="buba-membership-heading">
-                <span class="buba-crown" aria-hidden="true"><img src="{{asset "icons/buba-icon-crown.svg"}}" alt="" loading="eager"></span>
-                <h2>Werde Mitglied und lerne ohne Ablenkung</h2>
-            </div>
-            <ul>
-                <li>Exklusive Übungen & Lösungen</li>
-                <li>PDFs, Wortlisten & Merkblätter</li>
-                <li>Prüfungsmaterial & Musterteste</li>
-                <li>Mitgliederinhalte & Downloads</li>
-                <li>Ohne Werbung lernen</li>
-            </ul>
-            {{#if @site.members_enabled}}
-                <a class="buba-button buba-button-primary" href="#/portal/signup" data-portal="signup">Jetzt Mitglied werden <span aria-hidden="true">→</span></a>
+        {{#if @member}}
+            {{#if @member.paid}}
+                <aside class="buba-membership buba-member-card" id="mitgliedschaft" aria-label="Premium-Mitgliederbereich">
+                    <div class="buba-membership-heading">
+                        <span class="buba-crown" aria-hidden="true"><img src="{{asset "icons/buba-icon-crown.svg"}}" alt="" loading="eager"></span>
+                        <h2>Dein werbefreier Lernbereich</h2>
+                    </div>
+                    <ul>
+                        <li>Keine Anzeigen im Lernfluss</li>
+                        <li>Keine Verkaufsflächen auf Mitgliederseiten</li>
+                        <li>Schneller Zugriff auf Themen</li>
+                        <li>Konto und Newsletter an einem Ort</li>
+                    </ul>
+                    <a class="buba-button buba-button-primary" href="/mitglieder/">Lernbereich öffnen <span aria-hidden="true">→</span></a>
+                    <p>Premium aktiv.<br>Dein Konto bleibt im Portal erreichbar.</p>
+                    <img src="{{asset "images/buba-newsletter1-trim-optimized.webp"}}" alt="" loading="lazy" width="320" height="335">
+                </aside>
             {{else}}
-                <a class="buba-button buba-button-primary" href="#neueste-beitraege">Jetzt lernen <span aria-hidden="true">→</span></a>
+                <aside class="buba-membership buba-member-card buba-free-member-card" id="mitgliedschaft" aria-label="Free-Mitgliedschaft">
+                    <div class="buba-membership-heading">
+                        <span class="buba-crown" aria-hidden="true"><img src="{{asset "icons/buba-icon-crown.svg"}}" alt="" loading="eager"></span>
+                        <h2>Free-Mitglied: weiterlernen oder upgraden</h2>
+                    </div>
+                    <ul>
+                        <li>Login, Newsletter und Themenzugriff bleiben kostenlos</li>
+                        <li>Premium blendet Anzeigen aus</li>
+                        <li>Premium schaltet zusätzliche Materialien frei</li>
+                        <li>Monatlich kündbar</li>
+                    </ul>
+                    {{#if @site.paid_members_enabled}}
+                        <a class="buba-button buba-button-primary" href="#/portal/account/plans" data-portal="upgrade">Werbefrei upgraden <span aria-hidden="true">→</span></a>
+                    {{else}}
+                        <a class="buba-button buba-button-primary" href="/mitglieder/">Lernbereich öffnen <span aria-hidden="true">→</span></a>
+                    {{/if}}
+                    <p>Angemeldet als Free-Mitglied.<br>Dein Konto bleibt im Portal erreichbar.</p>
+                    <img src="{{asset "images/buba-newsletter1-trim-optimized.webp"}}" alt="" loading="lazy" width="320" height="335">
+                </aside>
             {{/if}}
-            <p>Schon ab 4,99 € / Monat<br>Monatlich kündbar.</p>
-            <img src="{{asset "images/buba-newsletter1-trim-optimized.webp"}}" alt="" loading="lazy" width="320" height="335">
-        </aside>
+        {{else}}
+            <aside class="buba-membership" id="mitgliedschaft">
+                <div class="buba-membership-heading">
+                    <span class="buba-crown" aria-hidden="true"><img src="{{asset "icons/buba-icon-crown.svg"}}" alt="" loading="eager"></span>
+                    <h2>Werde Mitglied und lerne ohne Ablenkung</h2>
+                </div>
+                <div class="buba-membership-compare" aria-label="Vergleich kostenlos und Mitglied">
+                    <div>
+                        <strong>Kostenlos</strong>
+                        <ul>
+                            <li>Beiträge lesen</li>
+                            <li>Grundlegende Erklärungen</li>
+                            <li>Newsletter</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <strong>Mitglied</strong>
+                        <ul>
+                            <li>Übungen mit Lösungen</li>
+                            <li>PDFs und Merkblätter</li>
+                            <li>Wortlisten</li>
+                            <li>Prüfungsmaterial</li>
+                            <li>Downloads</li>
+                            <li>Ohne Werbung lernen</li>
+                        </ul>
+                    </div>
+                </div>
+                {{#if @site.members_enabled}}
+                    <div class="buba-membership-actions">
+                        <a class="buba-button buba-button-primary" href="#/portal/signup" data-portal="signup">Mitglied werden <span aria-hidden="true">→</span></a>
+                        <a class="buba-link" href="/mitglieder/">Vorteile ansehen <span aria-hidden="true">→</span></a>
+                    </div>
+                {{else}}
+                    <a class="buba-button buba-button-primary" href="#neueste-beitraege">Jetzt lernen <span aria-hidden="true">→</span></a>
+                {{/if}}
+                <p>Schon ab 4,99 € / Monat<br>Monatlich kündbar.</p>
+                <img src="{{asset "images/buba-newsletter1-trim-optimized.webp"}}" alt="" loading="lazy" width="320" height="335">
+            </aside>
+        {{/if}}
     </div>
 </section>

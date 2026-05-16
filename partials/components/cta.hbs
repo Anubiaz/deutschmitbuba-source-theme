@@ -1,6 +1,20 @@
 {{#if @site.members_enabled}}
-    {{#unless @member}}
-        {{#match posts.length ">=" 7}}
+    {{#match posts.length ">=" 7}}
+        {{#if @member}}
+            {{#if @site.paid_members_enabled}}
+                {{#unless @member.paid}}
+                    <section class="gh-cta gh-outer buba-upgrade-cta">
+                        <div class="gh-cta-inner gh-inner">
+                            <div class="gh-cta-content">
+                                <h2 class="gh-cta-title is-title">Werbefrei weiterlernen</h2>
+                                <p class="gh-cta-description is-body">Du bist als Free-Mitglied angemeldet. Premium entfernt Anzeigen und schaltet zusätzliche Materialien frei.</p>
+                            </div>
+                            <button class="gh-button" data-portal="upgrade">Premium ansehen</button>
+                        </div>
+                    </section>
+                {{/unless}}
+            {{/if}}
+        {{else}}
             <section class="gh-cta gh-outer">
                 <div class="gh-cta-inner gh-inner">
                     <div class="gh-cta-content">
@@ -14,6 +28,6 @@
                     {{> "email-subscription" email_field_id="cta-email"}}
                 </div>
             </section>
-        {{/match}}
-    {{/unless}}
+        {{/if}}
+    {{/match}}
 {{/if}}

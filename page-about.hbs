@@ -1,0 +1,46 @@
+{{!< default}}
+
+{{#post}}
+
+<main id="gh-main" class="buba-about-page">
+    <section class="buba-archive-hero buba-about-hero gh-outer" aria-labelledby="buba-about-title">
+        <div class="buba-archive-hero-inner gh-inner">
+            <div>
+                <p class="buba-kicker">Über Buba</p>
+                <h1 id="buba-about-title">{{title}}</h1>
+                {{#if custom_excerpt}}
+                    <p>{{custom_excerpt}}</p>
+                {{else}}
+                    <p>Einfaches Deutsch für Menschen, die im echten Alltag sicherer sprechen, verstehen und schreiben möchten.</p>
+                {{/if}}
+            </div>
+            <aside class="buba-about-card" aria-label="Arbeitsweise">
+                <strong>klar lernen</strong>
+                <span>kurze Regeln</span>
+                <span>praktische Beispiele</span>
+                <span>Alltag und Beruf</span>
+            </aside>
+        </div>
+    </section>
+
+    <article class="gh-article {{post_class}}">
+        <section class="gh-content gh-canvas is-body">
+            {{content}}
+        </section>
+    </article>
+
+    <section class="buba-section buba-about-paths" aria-labelledby="buba-about-paths-title">
+        <div class="buba-container">
+            <div class="buba-section-head">
+                <h2 id="buba-about-paths-title">So findest du den passenden Einstieg</h2>
+            </div>
+            <div class="buba-member-grid">
+                <a href="/tag/grammatik/"><img src="{{asset "icons/buba-icon-chat.svg"}}" alt="" loading="lazy"><strong>Regeln verstehen</strong><small>Grammatik ohne lange Fachsprache.</small></a>
+                <a href="/tag/alltag/"><img src="{{asset "icons/buba-icon-people.svg"}}" alt="" loading="lazy"><strong>Alltag sprechen</strong><small>Sätze für Termine, Arzt und Behörden.</small></a>
+                <a href="/tag/beruf/"><img src="{{asset "icons/buba-icon-briefcase.svg"}}" alt="" loading="lazy"><strong>Beruf vorbereiten</strong><small>E-Mails und Situationen im Job.</small></a>
+            </div>
+        </div>
+    </section>
+</main>
+
+{{/post}}

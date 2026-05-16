@@ -3,7 +3,9 @@
 
 {{#post}}
 
-<main class="gh-main">
+{{> "reading-progress"}}
+
+<main id="gh-main" class="gh-main buba-article-main">
 
     <article class="gh-article {{post_class}}">
 
@@ -51,9 +53,75 @@
 
         </header>
 
+        <aside class="buba-lesson-intro gh-canvas" aria-label="Lernziel dieser Lektion">
+            <div>
+                <span class="buba-lesson-label">Lernziel</span>
+                <p>
+                    {{#if custom_excerpt}}
+                        {{custom_excerpt}}
+                    {{else}}
+                        Lies zuerst die Erklärung, merke dir die Beispiele und probiere danach eigene Sätze für deinen Alltag.
+                    {{/if}}
+                </p>
+            </div>
+            <div class="buba-lesson-badges" aria-label="Einordnung">
+                {{#if primary_tag}}
+                    <a href="{{primary_tag.url}}">{{primary_tag.name}}</a>
+                {{/if}}
+                <span>Deutsch im Alltag</span>
+            </div>
+        </aside>
+
         <section class="gh-content gh-canvas is-body{{#if @custom.enable_drop_caps_on_posts}} drop-cap{{/if}}">
             {{content}}
         </section>
+
+        {{#unless @member}}
+            <aside class="buba-ad-slot buba-ad-slot-article gh-canvas" aria-label="Werbeplatz">
+                <span>Anzeige</span>
+            </aside>
+        {{/unless}}
+
+        {{#unless @member.paid}}
+            {{#if @site.members_enabled}}
+                <aside class="buba-member-box buba-article-member-cta gh-canvas">
+                    <strong>Mehr mit Buba üben</strong>
+                    <p>Mitglieder bekommen Übungen mit Lösungen, Merkblätter, Wortlisten und Downloads ohne Werbung.</p>
+                    <a class="buba-button buba-button-primary" href="#/portal/signup" data-portal="signup">Mitglied werden <span aria-hidden="true">→</span></a>
+                </aside>
+            {{/if}}
+        {{/unless}}
+
+        {{#primary_author}}
+            <aside class="buba-author-box gh-canvas">
+                {{#if profile_image}}
+                    <img src="{{img_url profile_image size="xs"}}" alt="{{name}}" width="80" height="80" loading="lazy">
+                {{/if}}
+                <div>
+                    <span>Autor</span>
+                    <strong>{{name}}</strong>
+                    {{#if bio}}<p>{{bio}}</p>{{/if}}
+                    <a href="{{url}}">Weitere Beiträge ansehen <span aria-hidden="true">→</span></a>
+                </div>
+            </aside>
+        {{/primary_author}}
+
+        <footer class="buba-article-paths" aria-label="Weiterlernen">
+            <div>
+                <strong>Weiterlernen nach Thema</strong>
+                <span>Finde direkt die nächste passende Lektion.</span>
+            </div>
+            <nav aria-label="Themen">
+                {{#if primary_tag}}
+                    <a href="{{primary_tag.url}}">{{primary_tag.name}}</a>
+                {{/if}}
+                <a href="/tag/grammatik/">Grammatik</a>
+                <a href="/tag/alltag/">Alltag</a>
+                {{#if @member}}
+                    <a href="/mitglieder/">Lernbereich</a>
+                {{/if}}
+            </nav>
+        </footer>
 
     </article>
 
@@ -68,18 +136,137 @@
 {{/post}}
 
 {{#if @custom.show_related_articles}}
-    {{#get "posts" include="authors" filter="id:-{{post.id}}" limit="4" as |next|}}
-        {{#if next}}
-            <section class="gh-container is-grid gh-outer">
-                <div class="gh-container-inner gh-inner">
-                    <h2 class="gh-container-title">{{t "Read more"}}</h2>
-                    <div class="gh-feed">
-                        {{#foreach next}}
-                            {{> "post-card" lazyLoad=true}}
-                        {{/foreach}}
-                    </div>
-                </div>
-            </section>
+    {{#if post.tags}}
+        {{#if @member.paid}}
+            {{#get "posts" include="authors,tags" filter="tags:[{{post.tags}}]+id:-{{post.id}}" limit="4" as |next|}}
+                {{#if next}}
+                    <section class="gh-container is-grid gh-outer">
+                        <div class="gh-container-inner gh-inner">
+                            <h2 class="gh-container-title">{{t "Read more"}}</h2>
+                            <div class="gh-feed">
+                                {{#foreach next}}
+                                    {{> "post-card" lazyLoad=true}}
+                                {{/foreach}}
+                            </div>
+                        </div>
+                    </section>
+                {{else}}
+                    {{#get "posts" include="authors,tags" filter="id:-{{../post.id}}" limit="4" as |fallback|}}
+                        {{#if fallback}}
+                            <section class="gh-container is-grid gh-outer">
+                                <div class="gh-container-inner gh-inner">
+                                    <h2 class="gh-container-title">{{t "Read more"}}</h2>
+                                    <div class="gh-feed">
+                                        {{#foreach fallback}}
+                                            {{> "post-card" lazyLoad=true}}
+                                        {{/foreach}}
+                                    </div>
+                                </div>
+                            </section>
+                        {{/if}}
+                    {{/get}}
+                {{/if}}
+            {{/get}}
+        {{else}}
+            {{#get "posts" include="authors,tags" filter="visibility:public+id:-{{post.id}}+tags:[{{post.tags}}]" limit="4" as |public|}}
+                {{#get "posts" include="authors,tags" filter="visibility:paid+id:-../post.id" limit="1" as |paid|}}
+                    {{#if paid}}
+                        <section class="gh-container is-grid gh-outer">
+                            <div class="gh-container-inner gh-inner">
+                                <h2 class="gh-container-title">{{t "Read more"}}</h2>
+                                <div class="gh-feed">
+                                    {{#foreach paid}}
+                                        {{> "post-card" lazyLoad=true}}
+                                    {{/foreach}}
+
+                                    {{#foreach public limit="3"}}
+                                        {{> "post-card" lazyLoad=true}}
+                                    {{/foreach}}
+                                </div>
+                            </div>
+                        </section>
+                    {{else}}
+                        {{#if public}}
+                            <section class="gh-container is-grid gh-outer">
+                                <div class="gh-container-inner gh-inner">
+                                    <h2 class="gh-container-title">{{t "Read more"}}</h2>
+                                    <div class="gh-feed">
+                                        {{#foreach public}}
+                                            {{> "post-card" lazyLoad=true}}
+                                        {{/foreach}}
+                                    </div>
+                                </div>
+                            </section>
+                        {{else}}
+                            {{#get "posts" include="authors,tags" filter="visibility:public+id:-{{../post.id}}" limit="4" as |fallback|}}
+                                {{#if fallback}}
+                                    <section class="gh-container is-grid gh-outer">
+                                        <div class="gh-container-inner gh-inner">
+                                            <h2 class="gh-container-title">{{t "Read more"}}</h2>
+                                            <div class="gh-feed">
+                                                {{#foreach fallback}}
+                                                    {{> "post-card" lazyLoad=true}}
+                                                {{/foreach}}
+                                            </div>
+                                        </div>
+                                    </section>
+                                {{/if}}
+                            {{/get}}
+                        {{/if}}
+                    {{/if}}
+                {{/get}}
+            {{/get}}
         {{/if}}
-    {{/get}}
+    {{else}}
+        {{#if @member.paid}}
+            {{#get "posts" include="authors,tags" filter="id:-{{post.id}}" limit="4" as |next|}}
+                {{#if next}}
+                    <section class="gh-container is-grid gh-outer">
+                        <div class="gh-container-inner gh-inner">
+                            <h2 class="gh-container-title">{{t "Read more"}}</h2>
+                            <div class="gh-feed">
+                                {{#foreach next}}
+                                    {{> "post-card" lazyLoad=true}}
+                                {{/foreach}}
+                            </div>
+                        </div>
+                    </section>
+                {{/if}}
+            {{/get}}
+        {{else}}
+            {{#get "posts" include="authors,tags" filter="visibility:public+id:-{{post.id}}" limit="4" as |public|}}
+                {{#get "posts" include="authors,tags" filter="visibility:paid+id:-../post.id" limit="1" as |paid|}}
+                    {{#if paid}}
+                        <section class="gh-container is-grid gh-outer">
+                            <div class="gh-container-inner gh-inner">
+                                <h2 class="gh-container-title">{{t "Read more"}}</h2>
+                                <div class="gh-feed">
+                                    {{#foreach paid}}
+                                        {{> "post-card" lazyLoad=true}}
+                                    {{/foreach}}
+
+                                    {{#foreach public limit="3"}}
+                                        {{> "post-card" lazyLoad=true}}
+                                    {{/foreach}}
+                                </div>
+                            </div>
+                        </section>
+                    {{else}}
+                        {{#if public}}
+                            <section class="gh-container is-grid gh-outer">
+                                <div class="gh-container-inner gh-inner">
+                                    <h2 class="gh-container-title">{{t "Read more"}}</h2>
+                                    <div class="gh-feed">
+                                        {{#foreach public}}
+                                            {{> "post-card" lazyLoad=true}}
+                                        {{/foreach}}
+                                    </div>
+                                </div>
+                            </section>
+                        {{/if}}
+                    {{/if}}
+                {{/get}}
+            {{/get}}
+        {{/if}}
+    {{/if}}
 {{/if}}

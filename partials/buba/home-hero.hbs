@@ -3,16 +3,29 @@
         <div class="buba-hero-copy">
             <h1 id="buba-home-title">Deutsch lernen.<br><span>Einfach</span> erklärt.<br><small>Mit Buba an deiner Seite.</small></h1>
             <div class="buba-mobile-vignette" aria-hidden="true">
-                <img src="{{asset "images/buba-newsletter1-trim-optimized.webp"}}" alt="" loading="eager" width="104" height="104">
+                <img src="{{asset "images/buba-newsletter1-trim-optimized.webp"}}" alt="" loading="eager" width="320" height="335">
             </div>
-            <p>Praktische Erklärungen, Übungen und Tipps für Alltag, Arbeit und Prüfungen. Besonders hilfreich für ukrainischsprachige Lernende.</p>
+            <p>Kurze Erklärungen, Übungen und Alltagssätze für Deutsch im Alltag, Beruf und in Prüfungen. Mit kleinen ukrainischen Hilfen, wenn sie wirklich helfen.</p>
 
             <div class="buba-actions">
-                <a class="buba-button buba-button-primary" href="#neueste-beitraege">Kostenlos starten <span aria-hidden="true">→</span></a>
-                {{#if @site.members_enabled}}
-                    <a class="buba-button buba-button-secondary buba-membership-cta" href="#mitgliedschaft"><img class="buba-button-icon" src="{{asset "icons/buba-icon-crown.svg"}}" alt="" aria-hidden="true" loading="eager">Vorteile ansehen</a>
+                {{#if @member}}
+                    <a class="buba-button buba-button-primary" href="/mitglieder/">Zum Lernbereich <span aria-hidden="true">→</span></a>
+                    {{#if @member.paid}}
+                        <a class="buba-button buba-button-secondary" href="#/portal/account" data-portal="account">Konto öffnen</a>
+                    {{else}}
+                        {{#if @site.paid_members_enabled}}
+                            <a class="buba-button buba-button-secondary buba-membership-cta" href="#/portal/account/plans" data-portal="upgrade"><img class="buba-button-icon" src="{{asset "icons/buba-icon-crown.svg"}}" alt="" aria-hidden="true" loading="eager">Werbefrei upgraden</a>
+                        {{else}}
+                            <a class="buba-button buba-button-secondary" href="#/portal/account" data-portal="account">Konto öffnen</a>
+                        {{/if}}
+                    {{/if}}
                 {{else}}
-                    <a class="buba-button buba-button-secondary" href="#themen">Themen ansehen</a>
+                    <a class="buba-button buba-button-primary" href="#neueste-beitraege">Kostenlos lesen <span aria-hidden="true">→</span></a>
+                    {{#if @site.members_enabled}}
+                        <a class="buba-button buba-button-secondary buba-membership-cta" href="#mitgliedschaft"><img class="buba-button-icon" src="{{asset "icons/buba-icon-crown.svg"}}" alt="" aria-hidden="true" loading="eager">Mitgliedschaft ansehen</a>
+                    {{else}}
+                        <a class="buba-button buba-button-secondary" href="#themen">Themen ansehen</a>
+                    {{/if}}
                 {{/if}}
             </div>
 

@@ -1,22 +1,92 @@
 {{!< default}}
 {{!-- The tag above means: insert everything in this file into the body of the default.hbs template --}}
 
-<main class="gh-main gh-outer">
+<main id="gh-main" class="gh-main buba-archive-main">
 
     {{#tag}}
-        <section class="gh-archive{{#if feature_image}} has-image{{/if}}{{#if @custom.show_publication_info_sidebar}} has-sidebar{{/if}} gh-inner">
-            <div class="gh-archive-inner">
-                <header class="gh-archive-wrapper">
-                    <h1 class="gh-article-title is-title">{{name}}</h1>
-                    {{#if description}}
-                        <p class="gh-article-excerpt">{{description}}</p>
-                    {{/if}}
-                </header>
-                {{> "feature-image"}}
+        <section class="buba-archive-hero{{#if feature_image}} has-image{{/if}} gh-outer" aria-labelledby="buba-tag-title">
+            <div class="buba-archive-hero-inner gh-inner">
+                <div>
+                    <p class="buba-kicker">Thema</p>
+                    <h1 id="buba-tag-title">{{name}}</h1>
+                    <p>
+                        {{#if description}}
+                            {{description}}
+                        {{else}}
+                            {{#match slug "grammatik"}}
+                                Hier findest du einfache Grammatik-Erklärungen mit Beispielen, typischen Fehlern und kurzen Übungen.
+                            {{else match slug "wortschatz"}}
+                                Lerne Wörter nicht einzeln, sondern in Sätzen, Situationen und kleinen Wortfamilien.
+                            {{else match slug "alltag"}}
+                                Praktische Sätze für Arzt, Behörden, Einkaufen, Termine und Wohnen in Deutschland.
+                            {{else match slug "beruf"}}
+                                Deutsch für Arbeit, E-Mails, Gespräche, Bewerbungen und typische Situationen im Beruf.
+                            {{else match slug "lernen"}}
+                                Routinen, Motivation und einfache Lernmethoden, die im Alltag realistisch bleiben.
+                            {{else}}
+                                Alle Lektionen und Beispiele zu diesem Lernbereich.
+                            {{/match}}
+                        {{/if}}
+                    </p>
+                </div>
+                {{#if feature_image}}
+                    <figure class="buba-archive-image">
+                        <img src="{{img_url feature_image size="l"}}" alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{name}}{{/if}}">
+                    </figure>
+                {{else}}
+                    <nav class="buba-archive-pills" aria-label="Weitere Themen">
+                        <a href="/tag/grammatik/">Grammatik</a>
+                        <a href="/tag/wortschatz/">Wortschatz</a>
+                        <a href="/tag/alltag/">Alltag</a>
+                        <a href="/tag/beruf/">Beruf</a>
+                        <a href="/tag/lernen/">Lernen</a>
+                    </nav>
+                {{/if}}
+            </div>
+        </section>
+
+        <section class="buba-topic-start gh-outer" aria-labelledby="buba-topic-start-title">
+            <div class="buba-topic-start-inner gh-inner">
+                <div>
+                    <p class="buba-kicker">Starte hier</p>
+                    <h2 id="buba-topic-start-title">Der schnelle Einstieg in {{name}}</h2>
+                    <p>
+                        {{#match slug "grammatik"}}
+                            Beginne mit einer kurzen Regel, lies ein Beispiel und übe danach mit einem Satz aus dem Alltag.
+                        {{else match slug "wortschatz"}}
+                            Starte mit einem Thema aus deinem Alltag und sammle passende Sätze statt einzelner Wörter.
+                        {{else match slug "alltag"}}
+                            Wähle zuerst die Situation, die du diese Woche wirklich brauchst: Arzt, Termin, Einkauf oder Wohnen.
+                        {{else match slug "beruf"}}
+                            Nimm dir zuerst eine konkrete Aufgabe vor: E-Mail schreiben, Beruf erklären oder Gespräch vorbereiten.
+                        {{else}}
+                            Wähle ein Thema, lies einen kurzen Beitrag und speichere dir die Sätze, die du direkt benutzen kannst.
+                        {{/match}}
+                    </p>
+                </div>
+                <nav class="buba-topic-start-links" aria-label="Empfohlene Einstiege">
+                    {{#match slug "grammatik"}}
+                        <a href="/praeteritum-oder-perfekt-einfach-erklaert/">Präteritum oder Perfekt?</a>
+                        <a href="/trennbare-verben-im-alltag/">Trennbare Verben üben</a>
+                    {{else match slug "wortschatz"}}
+                        <a href="/trennbare-verben-im-alltag/">Verben im Alltag</a>
+                        <a href="/berufe-in-deutschland/">Berufe in Deutschland</a>
+                    {{else match slug "alltag"}}
+                        <a href="/wichtige-saetze-beim-arzt/">Sätze beim Arzt</a>
+                        <a href="/berufe-in-deutschland/">Alltag und Arbeit</a>
+                    {{else match slug "beruf"}}
+                        <a href="/e-mail-auf-deutsch-schreiben/">E-Mail auf Deutsch</a>
+                        <a href="/berufe-in-deutschland/">Über deinen Beruf sprechen</a>
+                    {{else}}
+                        <a href="/5-fehler-die-viele-deutschlernende-machen/">Typische Fehler vermeiden</a>
+                        <a href="/was-bedeutet-eigentlich-doch/">Ein Wort genauer verstehen</a>
+                    {{/match}}
+                    <a href="/mitglieder/">Lernbereich ansehen</a>
+                </nav>
             </div>
         </section>
     {{/tag}}
 
-    {{> "components/post-list" feed="archive" postFeedStyle=@custom.post_feed_style showTitle=false showSidebar=@custom.show_publication_info_sidebar}}
+    {{> "components/post-list" feed="archive" postFeedStyle=@custom.post_feed_style showTitle=false showSidebar=false}}
 
 </main>

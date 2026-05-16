@@ -10,21 +10,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    {{!-- Preload main styles and scripts for better performance --}}
+    {{!-- Preload main styles for better first paint --}}
     <link rel="preload" as="style" href="{{asset "built/screen.css"}}">
-    {{#is "home"}}
-        <link rel="preload" as="style" href="{{asset "built/buba-home.css"}}">
-    {{/is}}
-    <link rel="preload" as="script" href="{{asset "built/source.js"}}">
+    <link rel="preload" as="style" href="{{asset "built/buba-home.css"}}">
     
     {{!-- Fonts are preloaded and defined in the default template to avoid layout shift --}}
     {{> "typography/fonts"}}
 
     {{!-- Theme assets - use the {{asset}} helper to reference styles & scripts, this will take care of caching and cache-busting automatically --}}
     <link rel="stylesheet" type="text/css" href="{{asset "built/screen.css"}}">
-    {{#is "home"}}
-        <link rel="stylesheet" type="text/css" href="{{asset "built/buba-home.css"}}">
-    {{/is}}
+    <link rel="stylesheet" type="text/css" href="{{asset "built/buba-home.css"}}">
 
     {{!-- Custom background color --}}
     <style>
@@ -56,10 +51,12 @@
     {{ghost_head}}
 
 </head>
-<body class="{{body_class}} has-{{#match @custom.title_font "Elegant serif"}}serif{{else match @custom.title_font "Consistent mono"}}mono{{else}}sans{{/match}}-title has-{{#match @custom.body_font "Elegant serif"}}serif{{else}}sans{{/match}}-body">
+<body class="{{body_class}} buba-site-chrome{{#if @member}} buba-is-member{{#if @member.paid}} buba-is-paid-member{{else}} buba-is-free-member{{/if}}{{else}} buba-is-anonymous{{/if}}{{#if @custom.show_publication_info_sidebar}} buba-prefers-sidebar{{/if}} has-{{#match @custom.title_font "Elegant serif"}}serif{{else match @custom.title_font "Consistent mono"}}mono{{else}}sans{{/match}}-title has-{{#match @custom.body_font "Elegant serif"}}serif{{else}}sans{{/match}}-body">
 
 <div class="gh-viewport">
     {{> "buba/site-tracking-body"}}
+
+    <a class="gh-skip-link" href="#gh-main">Direkt zum Inhalt</a>
     
     {{> "components/navigation" navigationLayout=@custom.navigation_layout}}
 

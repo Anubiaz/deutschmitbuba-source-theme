@@ -3,7 +3,9 @@
 
 {{#post}}
 
-<main class="gh-main">
+{{> "reading-progress"}}
+
+<main id="gh-main" class="gh-main buba-page-main">
     <article class="gh-article {{post_class}}">
 
         {{#match @page.show_title_and_feature_image}}

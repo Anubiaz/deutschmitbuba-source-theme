@@ -1,26 +1,59 @@
 <section class="buba-section buba-final" aria-label="Newsletter, Community und Empfehlung">
     <div class="buba-container buba-grid-3 buba-final-grid">
-        <article id="newsletter" class="buba-newsletter">
-            <div>
-                <h2>Nichts mehr verpassen!</h2>
-                <p>Erhalte neue Beiträge, kostenlose Lernhilfen und exklusive Tipps direkt in dein Postfach.</p>
-                {{#if @site.members_enabled}}
-                    {{> "email-subscription" email_field_id="buba-home-email"}}
-                {{/if}}
-            </div>
-            <img src="{{asset "images/buba-newsletter2-trim-optimized.webp"}}" alt="" loading="lazy" width="420" height="351">
-        </article>
+        {{#if @member}}
+            <article id="newsletter" class="buba-newsletter buba-member-next">
+                <div>
+                    {{#if @member.paid}}
+                        <h2>Weiterlernen ohne Umwege</h2>
+                        <p>Springe direkt zu den Themen, die im Alltag am meisten helfen: Sätze, Wortschatz, Grammatik und Beruf.</p>
+                        <a class="buba-button buba-button-primary" href="/mitglieder/">Lernbereich öffnen <span aria-hidden="true">→</span></a>
+                    {{else}}
+                        <h2>Free-Mitgliedschaft aktiv</h2>
+                        <p>Dein Login ist eingerichtet. Premium entfernt Anzeigen und macht den Lernbereich noch ruhiger.</p>
+                        {{#if @site.paid_members_enabled}}
+                            <a class="buba-button buba-button-primary" href="#/portal/account/plans" data-portal="upgrade">Premium ansehen <span aria-hidden="true">→</span></a>
+                        {{else}}
+                            <a class="buba-button buba-button-primary" href="/mitglieder/">Lernbereich öffnen <span aria-hidden="true">→</span></a>
+                        {{/if}}
+                    {{/if}}
+                </div>
+                <img src="{{asset "images/buba-newsletter2-trim-optimized.webp"}}" alt="" loading="lazy" width="420" height="351">
+            </article>
+        {{else}}
+            <article id="newsletter" class="buba-newsletter">
+                <div>
+                    <h2>Nichts mehr verpassen</h2>
+                    <p>Erhalte neue Beiträge, kostenlose Lernhilfen und exklusive Tipps direkt in dein Postfach.</p>
+                    {{#if @site.members_enabled}}
+                        {{> "email-subscription" email_field_id="buba-home-email"}}
+                    {{/if}}
+                </div>
+                <img src="{{asset "images/buba-newsletter2-trim-optimized.webp"}}" alt="" loading="lazy" width="420" height="351">
+            </article>
+        {{/if}}
 
         <article class="buba-community">
             <h2>Werde Teil der Community</h2>
-            <p>Tausche dich aus, stelle Fragen und motiviere dich mit anderen Lernenden.</p>
-            <div aria-label="Social Media">
+            <p>Stelle Fragen, teile Alltagssätze und finde neue Beiträge dort, wo du ohnehin lernst.</p>
+            <div class="buba-social-icon-row" aria-hidden="true">
                 <span aria-hidden="true"><img src="{{asset "icons/buba-social-instagram.svg"}}" alt="" loading="eager"></span>
                 <span aria-hidden="true"><img src="{{asset "icons/buba-social-youtube.svg"}}" alt="" loading="eager"></span>
                 <span aria-hidden="true"><img src="{{asset "icons/buba-social-tiktok.svg"}}" alt="" loading="eager"></span>
                 <span aria-hidden="true"><img src="{{asset "icons/buba-social-telegram.svg"}}" alt="" loading="eager"></span>
             </div>
-            <a class="buba-link" href="#mitgliedschaft">Mitgliedschaft ansehen <span aria-hidden="true">→</span></a>
+            {{#if @member}}
+                {{#if @member.paid}}
+                    <a class="buba-link" href="/tag/lernen/">Lerntipps ansehen <span aria-hidden="true">→</span></a>
+                {{else}}
+                    {{#if @site.paid_members_enabled}}
+                        <a class="buba-link" href="#/portal/account/plans" data-portal="upgrade">Premium ansehen <span aria-hidden="true">→</span></a>
+                    {{else}}
+                        <a class="buba-link" href="/tag/lernen/">Lerntipps ansehen <span aria-hidden="true">→</span></a>
+                    {{/if}}
+                {{/if}}
+            {{else}}
+                <a class="buba-link" href="#mitgliedschaft">Mitgliedschaft ansehen <span aria-hidden="true">→</span></a>
+            {{/if}}
         </article>
 
         <article class="buba-quote buba-review-card" aria-label="Bewertungen von Lernenden">

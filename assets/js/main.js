@@ -153,3 +153,47 @@
         wrapper.appendChild(table);
     });
 })();
+
+/* Reading progress */
+(function () {
+    const progress = document.querySelector('[data-reading-progress]');
+    const article = document.querySelector('.gh-article');
+
+    if (!progress || !article) return;
+
+    let ticking = false;
+
+    const clamp = function (value) {
+        return Math.min(Math.max(value, 0), 1);
+    };
+
+    const update = function () {
+        const scrollY = window.scrollY || window.pageYOffset;
+        const articleTop = article.getBoundingClientRect().top + scrollY;
+        const articleHeight = article.offsetHeight;
+        const trackLength = Math.max(articleHeight - window.innerHeight, 1);
+        const value = clamp((scrollY - articleTop) / trackLength);
+        const percent = Math.round(value * 100);
+
+        progress.style.setProperty('--reading-progress-value', value.toFixed(4));
+        progress.setAttribute('aria-valuenow', percent.toString());
+        progress.classList.toggle('is-visible', scrollY > articleTop + 8 && value < 1);
+        progress.classList.toggle('is-complete', value >= 0.995);
+
+        ticking = false;
+    };
+
+    const requestUpdate = function () {
+        if (ticking) return;
+        ticking = true;
+        window.requestAnimationFrame(update);
+    };
+
+    update();
+    window.addEventListener('scroll', requestUpdate, {passive: true});
+    window.addEventListener('resize', requestUpdate);
+
+    if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(requestUpdate);
+    }
+})();
