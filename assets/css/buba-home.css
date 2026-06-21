@@ -2536,6 +2536,628 @@ button.buba-link,
     margin-top: 0;
 }
 
+/* Quiet learning journal redesign */
+.buba-home {
+    background: #fffdf8;
+}
+
+.buba-section {
+    padding-top: clamp(48px, 7vw, 88px);
+}
+
+.buba-section-head {
+    margin-bottom: 20px;
+}
+
+.buba-section-head h2 {
+    max-width: 18ch;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(2.5rem, 4vw, 4.4rem);
+    font-weight: 700;
+    line-height: 1.02;
+}
+
+.buba-section-head a,
+.buba-link {
+    color: #005eb8;
+    font-weight: 850;
+    text-decoration: underline;
+    text-decoration-color: rgb(0 94 184 / 0.25);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+}
+
+.buba-site-chrome .gh-navigation {
+    background: rgb(255 253 248 / 0.96);
+    border-bottom-color: #e5ded3;
+    box-shadow: 0 1px 0 rgb(11 31 51 / 0.02);
+}
+
+.buba-site-chrome .gh-navigation .gh-navigation-inner {
+    gap: 20px;
+}
+
+.buba-site-chrome .gh-navigation .buba-nav a {
+    color: #4d5967;
+    font-weight: 720;
+}
+
+.buba-site-chrome .gh-navigation .buba-nav > li > a:hover,
+.buba-site-chrome .gh-navigation .buba-nav > li > a:focus,
+.buba-site-chrome .gh-navigation .buba-nav > li > a[aria-current="page"] {
+    color: var(--buba-ink);
+}
+
+.buba-nav-panel {
+    border-color: #e5ded3;
+    border-radius: 8px;
+    box-shadow: 0 20px 44px rgb(11 31 51 / 0.12);
+}
+
+.buba-nav-panel::before {
+    border-color: #e5ded3;
+}
+
+.buba-nav-panel a:hover,
+.buba-nav-panel a:focus {
+    background: #fff7df;
+}
+
+.buba-hero {
+    border-bottom-color: #e5ded3;
+    background: #f9f1e6;
+}
+
+.buba-hero-copy {
+    max-width: 470px;
+}
+
+.buba-hero h1 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: 700;
+}
+
+.buba-hero h1 span {
+    color: #a06e00;
+}
+
+.buba-hero-copy > p {
+    max-width: 42ch;
+}
+
+.buba-button-primary,
+.buba-site-chrome .gh-navigation .gh-button {
+    background: #ffbf00;
+    box-shadow: none;
+}
+
+.buba-button-primary:hover,
+.buba-button-primary:focus,
+.buba-site-chrome .gh-navigation .gh-button:hover,
+.buba-site-chrome .gh-navigation .gh-button:focus {
+    background: #ffc824;
+    box-shadow: 0 8px 18px rgb(255 191 0 / 0.2);
+}
+
+.buba-button-secondary {
+    border-color: #cbd5df;
+    background: #fffdf8;
+}
+
+.buba-benefits {
+    border-top: 1px solid rgb(11 31 51 / 0.08);
+    padding-top: 14px;
+}
+
+.buba-benefits li {
+    border-color: transparent;
+    background: transparent;
+    box-shadow: none;
+}
+
+.buba-feature {
+    padding-top: clamp(40px, 6vw, 74px);
+}
+
+.buba-feature-card,
+.buba-membership,
+.buba-topic-grid a,
+.buba-post-card,
+.buba-newsletter,
+.buba-community,
+.buba-quote {
+    border-color: #e2ddd4;
+    box-shadow: none;
+}
+
+.buba-feature-card:hover,
+.buba-topic-grid a:hover,
+.buba-post-card:hover {
+    border-color: #bfcbd7;
+    box-shadow: 0 14px 28px rgb(11 31 51 / 0.07);
+}
+
+.buba-feature-primary .buba-feature-body {
+    background: #fffdf8;
+}
+
+.buba-feature-card h2,
+.buba-membership h2,
+.buba-newsletter h2,
+.buba-community h2 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: 700;
+}
+
+.buba-membership {
+    background: #fff2cc;
+}
+
+.buba-method {
+    padding-top: clamp(44px, 7vw, 88px);
+}
+
+.buba-method-panel {
+    border-color: rgb(255 255 255 / 0.12);
+    border-radius: 8px;
+    background: #0b1f33;
+    box-shadow: none;
+}
+
+.buba-method-panel::before {
+    display: none;
+}
+
+.buba-method-intro h2 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: 700;
+}
+
+.buba-method-steps li {
+    box-shadow: none;
+}
+
+.buba-method-example {
+    background: #fff4c9;
+}
+
+.buba-topics {
+    position: relative;
+}
+
+.buba-topics::before {
+    position: absolute;
+    right: 0;
+    left: 0;
+    height: 1px;
+    background: #e9e2d8;
+    content: "";
+}
+
+.buba-topic-grid {
+    gap: 10px;
+}
+
+.buba-topic-grid a {
+    min-height: 114px;
+    background: #fffdf8;
+}
+
+.buba-latest-grid {
+    gap: 12px;
+}
+
+.buba-post-card {
+    border-radius: 8px;
+    background: #fffdf8;
+}
+
+.buba-post-image {
+    background: #f5eee5;
+}
+
+.buba-post-body {
+    min-height: 126px;
+}
+
+.buba-post-card h3 {
+    font-size: 1.28rem;
+}
+
+.buba-final {
+    padding-bottom: clamp(48px, 7vw, 88px);
+}
+
+.buba-newsletter,
+.buba-community,
+.buba-quote {
+    background: #fffaf0;
+}
+
+.buba-newsletter {
+    background: #fff3cf;
+}
+
+.buba-community {
+    color: #fffdf8;
+    border-color: #0b1f33;
+    background: #0b1f33;
+}
+
+.buba-community h2,
+.buba-community p,
+.buba-community .buba-link {
+    color: #fffdf8;
+}
+
+.buba-community .buba-link {
+    text-decoration-color: rgb(255 253 248 / 0.3);
+}
+
+.buba-review-card {
+    background: #fffaf0;
+}
+
+.buba-site-chrome .gh-footer {
+    margin-top: 0;
+    padding-block: clamp(44px, 6vw, 76px) 24px;
+    border-top: 0;
+    color: #e7edf3;
+    background: #0b1f33;
+}
+
+.buba-footer-layout {
+    display: grid;
+    grid-template-areas:
+        "brand"
+        "learn"
+        "membership"
+        "about"
+        "legal";
+    gap: 30px 22px;
+}
+
+.buba-footer-layout--with-newsletter {
+    grid-template-areas:
+        "signup"
+        "brand"
+        "learn"
+        "membership"
+        "about"
+        "legal";
+}
+
+.buba-footer-brand {
+    grid-area: brand;
+}
+
+.buba-footer-column[aria-label="Lernen"] {
+    grid-area: learn;
+}
+
+.buba-footer-column[aria-label="Mitgliedschaft"] {
+    grid-area: membership;
+}
+
+.buba-footer-column[aria-label="Über Buba"] {
+    grid-area: about;
+}
+
+.buba-footer-column[aria-label="Rechtliches"] {
+    grid-area: legal;
+}
+
+.buba-footer-newsletter {
+    grid-area: signup;
+    padding: 18px;
+    border: 1px solid rgb(231 237 243 / 0.3);
+    border-radius: 8px;
+    background: rgb(255 255 255 / 0.04);
+}
+
+.buba-footer-newsletter > p:not(.buba-footer-heading) {
+    max-width: 28ch;
+    margin-top: 7px;
+    color: #b7c3cf;
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+.buba-footer-newsletter .gh-form {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 8px;
+    margin-top: 14px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+}
+
+.buba-footer-newsletter .gh-form-input {
+    position: static;
+    width: 100%;
+    height: 42px;
+    padding-inline: 12px;
+    border: 1px solid rgb(231 237 243 / 0.32);
+    border-radius: 6px;
+    color: var(--buba-ink);
+    background: #fffdf8;
+}
+
+.buba-footer-newsletter .gh-form .gh-button {
+    position: static;
+    width: 100%;
+    min-width: 0;
+    height: 42px;
+    border-radius: 6px;
+    color: var(--buba-ink);
+    background: #ffbf00;
+    font-weight: 850;
+}
+
+.buba-footer-newsletter .gh-form .gh-button:hover,
+.buba-footer-newsletter .gh-form .gh-button:focus {
+    background: #ffc824;
+}
+
+.buba-footer-logo {
+    color: #fffdf8;
+}
+
+.buba-footer-logo img {
+    background: #fff7e6;
+}
+
+.buba-footer-logo strong,
+.buba-footer-heading,
+.buba-footer-column h2 {
+    color: #fffdf8;
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: 700;
+}
+
+.buba-footer-logo small,
+.buba-footer-brand p,
+.buba-footer-bottom {
+    color: #b7c3cf;
+}
+
+.buba-footer-brand p {
+    max-width: 29ch;
+}
+
+.buba-footer-social a,
+.buba-footer-social span {
+    border: 1px solid rgb(231 237 243 / 0.18);
+    border-radius: 5px;
+    background: transparent;
+    box-shadow: none;
+}
+
+.buba-footer-column {
+    gap: 7px;
+}
+
+.buba-footer-column a,
+.buba-footer-link {
+    color: #b7c3cf;
+}
+
+.buba-footer-column a:hover,
+.buba-footer-column a:focus,
+.buba-footer-link:hover,
+.buba-footer-link:focus {
+    color: #ffcf35;
+}
+
+.buba-footer-coming-soon {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    width: max-content;
+    max-width: 100%;
+    min-height: 30px;
+    color: #8494a4;
+    font-size: 0.98rem;
+    line-height: 1.25;
+}
+
+.buba-footer-coming-soon small {
+    color: #8494a4;
+    font-size: 0.82em;
+}
+
+.buba-footer-bottom {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 24px;
+    justify-content: space-between;
+    margin-top: 38px;
+    padding-top: 18px;
+    border-top-color: rgb(231 237 243 / 0.18);
+}
+
+@media (max-width: 767px) {
+    .buba-hero-copy {
+        max-width: none;
+    }
+
+    .buba-mobile-vignette {
+        display: none;
+    }
+
+    .buba-hero-media {
+        display: block;
+        height: clamp(180px, 58vw, 260px);
+        margin-inline: 0;
+        border-top: 1px solid #e5ded3;
+        border-bottom: 0;
+    }
+
+    .buba-hero-copy {
+        padding-bottom: 20px;
+    }
+
+    .buba-benefits {
+        gap: 8px;
+    }
+
+    .buba-benefits li {
+        min-height: 62px;
+        border: 1px solid #e5ded3;
+        background: rgb(255 255 255 / 0.7);
+    }
+
+    .buba-section-head h2 {
+        max-width: 14ch;
+    }
+
+    .buba-topic-grid a {
+        min-height: 72px;
+    }
+
+    .buba-post-card {
+        min-height: 0;
+    }
+
+    .buba-final-grid {
+        gap: 14px;
+    }
+
+    .buba-footer-layout {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .buba-footer-newsletter .gh-form {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+@media (min-width: 768px) {
+    .buba-nav-panel {
+        grid-template-columns: repeat(2, minmax(150px, 1fr));
+        min-width: 340px;
+    }
+
+    .buba-hero-inner {
+        grid-template-columns: minmax(0, 1.4fr) minmax(340px, 0.72fr);
+    }
+
+    .buba-hero-media {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .buba-hero-copy {
+        grid-column: 2;
+        grid-row: 1;
+        justify-self: end;
+    }
+
+    .buba-method-panel {
+        padding: clamp(28px, 4vw, 48px);
+    }
+
+    .buba-topic-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .buba-footer-layout {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-areas:
+            "brand brand"
+            "learn membership"
+            "about legal";
+    }
+
+    .buba-footer-layout--with-newsletter {
+        grid-template-areas:
+            "signup signup"
+            "brand brand"
+            "learn membership"
+            "about legal";
+    }
+
+    .buba-footer-newsletter .gh-form {
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 0;
+        padding: 4px;
+        border: 1px solid rgb(231 237 243 / 0.32);
+        border-radius: 7px;
+    }
+
+    .buba-footer-newsletter .gh-form-input {
+        height: 34px;
+        border: 0;
+        background: transparent;
+        color: #fffdf8;
+    }
+
+    .buba-footer-newsletter .gh-form-input::placeholder {
+        color: #b7c3cf;
+    }
+
+    .buba-footer-newsletter .gh-form .gh-button {
+        width: auto;
+        min-width: 118px;
+        height: 34px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .buba-feature-grid {
+        grid-template-columns: minmax(0, 1.45fr) minmax(300px, 0.75fr);
+    }
+
+    .buba-feature-card.buba-feature-primary,
+    .buba-membership {
+        grid-column: auto;
+    }
+
+    .buba-feature-card.buba-feature-primary {
+        height: auto;
+        min-height: 280px;
+    }
+
+    .buba-membership {
+        min-height: 280px;
+    }
+
+    .buba-topic-grid {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+    }
+
+    .buba-topic-grid a {
+        min-height: 126px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .buba-footer-layout--with-newsletter {
+        grid-template-columns: minmax(190px, 1.15fr) repeat(4, minmax(105px, 0.56fr)) minmax(232px, 1.12fr);
+        grid-template-areas: "brand learn membership about legal signup";
+        align-items: start;
+    }
+
+    .buba-footer-layout:not(.buba-footer-layout--with-newsletter) {
+        grid-template-columns: minmax(190px, 1.25fr) repeat(4, minmax(115px, 0.7fr));
+        grid-template-areas: "brand learn membership about legal";
+    }
+
+    .buba-footer-newsletter {
+        padding: 16px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .buba-feature-card,
+    .buba-topic-grid a,
+    .buba-post-card,
+    .buba-post-image img {
+        transition: none;
+    }
+}
+
 .buba-upgrade-cta .gh-cta-inner {
     border: 1px solid rgb(255 191 0 / 0.32);
     background:

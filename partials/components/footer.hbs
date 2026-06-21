@@ -1,7 +1,17 @@
 <footer class="gh-footer{{#match @custom.header_and_footer_color "Accent color"}} has-accent-color{{/match}} gh-outer">
     <div class="gh-footer-inner gh-inner">
 
-        <div class="buba-footer-layout">
+        <div class="buba-footer-layout{{#unless @member}}{{#if @site.members_enabled}} buba-footer-layout--with-newsletter{{/if}}{{/unless}}">
+            {{#unless @member}}
+                {{#if @site.members_enabled}}
+                    <section class="buba-footer-newsletter" aria-labelledby="buba-footer-newsletter-title">
+                        <p class="buba-footer-heading" id="buba-footer-newsletter-title">Kurz & klar per E-Mail</p>
+                        <p>Neue Lektionen und kleine Lernhilfen. Ohne Umwege.</p>
+                        {{> "email-subscription" email_field_id="buba-footer-email"}}
+                    </section>
+                {{/if}}
+            {{/unless}}
+
             <section class="buba-footer-brand" aria-label="{{@site.title}}">
                 <span class="buba-footer-logo">
                     {{#if @site.logo}}
@@ -53,6 +63,7 @@
                     <a href="{{#is "home"}}#mitgliedschaft{{else}}{{@site.url}}/#mitgliedschaft{{/is}}">Vorteile ansehen</a>
                     <button type="button" class="buba-footer-link" data-portal="signup">Mitglied werden</button>
                 {{/if}}
+                <span class="buba-footer-coming-soon">Preise <small>Demnächst</small></span>
             </nav>
 
             <nav class="buba-footer-column" aria-label="Über Buba">
@@ -66,6 +77,8 @@
                 <p class="buba-footer-heading">Rechtliches</p>
                 <a href="/impressum/">Impressum</a>
                 <a href="/datenschutzerklarung/">Datenschutz</a>
+                <span class="buba-footer-coming-soon">AGB <small>Demnächst</small></span>
+                <span class="buba-footer-coming-soon">Widerruf <small>Demnächst</small></span>
             </nav>
 
         </div>
