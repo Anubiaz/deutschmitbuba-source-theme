@@ -2175,6 +2175,12 @@ button.buba-link,
     height: 100%;
 }
 
+.buba-footer-social svg {
+    display: block;
+    width: 14px;
+    height: 14px;
+}
+
 .buba-footer-column {
     display: grid;
     gap: 4px;
