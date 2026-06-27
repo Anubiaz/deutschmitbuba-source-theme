@@ -15,19 +15,11 @@
                     </span>
                 </span>
                 <p>Ein ruhiger Blog für klare Erklärungen, Beispiele und kleine Lernhilfen im Alltag.</p>
-                <div class="buba-footer-social">
-                    {{#social_accounts @site}}
-                        <a href="{{href}}" target="_blank" rel="noopener" aria-label="{{name}}">
-                            {{#> (concat "icons/" type)}}
-                                <span>{{name}}</span>
-                            {{/undefined}}
-                        </a>
-                    {{else}}
-                        <span aria-hidden="true"><img src="{{asset "icons/buba-social-instagram.svg"}}" alt="" loading="eager"></span>
-                        <span aria-hidden="true"><img src="{{asset "icons/buba-social-youtube.svg"}}" alt="" loading="eager"></span>
-                        <span aria-hidden="true"><img src="{{asset "icons/buba-social-tiktok.svg"}}" alt="" loading="eager"></span>
-                        <span aria-hidden="true"><img src="{{asset "icons/buba-social-telegram.svg"}}" alt="" loading="eager"></span>
-                    {{/social_accounts}}
+                <div class="buba-footer-social" aria-hidden="true">
+                    <span aria-hidden="true"><img src="{{asset "icons/buba-social-instagram.svg"}}" alt="" loading="eager"></span>
+                    <span aria-hidden="true"><img src="{{asset "icons/buba-social-youtube.svg"}}" alt="" loading="eager"></span>
+                    <span aria-hidden="true"><img src="{{asset "icons/buba-social-tiktok.svg"}}" alt="" loading="eager"></span>
+                    <span aria-hidden="true"><img src="{{asset "icons/buba-social-telegram.svg"}}" alt="" loading="eager"></span>
                 </div>
             </section>
 
